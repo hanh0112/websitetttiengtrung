@@ -1,0 +1,12 @@
+
+/*--------------------------------------------------------------*/
+    /* #region - Product Listing - Border Options */
+/*--------------------------------------------------------------*/
+
+    .woocommerce ul.products.product-border-type-default.product-border-position-default li.product .product-wrapper,
+    .woocommerce ul.products.product-border-type-thumb.product-border-position-default li.product .product-thumb { 
+        border-color: var(--wdtBorderColor); border-style: solid; border-width: 1px; background-color: var(--wdtAccentTxtColor); }
+
+    .woocommerce ul.products.product-border-type-default.product-border-position-default li.product .product-details { padding: 15px; }
+
+ /* #endregion - Product Listing - Border Options */

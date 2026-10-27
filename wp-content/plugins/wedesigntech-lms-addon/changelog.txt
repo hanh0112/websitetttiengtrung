@@ -1,0 +1,10 @@
+===== WeDesignTech LMS Addon =====
+
+WeDesignTech LMS Addon adds additional course related modules to built entire course section in your site.
+
+
+== Changelog ==
+
+= 1.0.0 =
+
+    * First release!

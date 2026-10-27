@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2024 by original authors @ fontello.com</metadata>
+<defs>
+<font id="livi-common-arrow" horiz-adv-x="1000" >
+<font-face font-family="livi-common-arrow" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="common-arrow-next" unicode="&#xe80d;" d="M107 303h684l-295-295c-19-19-19-50 0-69 19-19 44-19 63-1l377 377c19 19 19 50 0 69l-377 377c-19 19-50 19-69 0s-19-44 0-63l295-301h-685c-25 0-50-19-50-50 13-25 31-50 57-44l0 0z" horiz-adv-x="1000" />
+</font>
+</defs>
+</svg>

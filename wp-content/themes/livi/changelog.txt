@@ -1,0 +1,36 @@
+*** Livi WordPress Theme Changelog ***
+
+Version 1.0.5
+
+    * Registration form error fixed
+    * Compatible: Latest WordPress Version
+    * Compatible: Latest Elementor Version
+
+Version 1.0.4
+
+    * Registration Form nonce and validation updated
+
+Version 1.0.3
+
+    * Compatible: Latest WordPress Version
+    * Compatible: Latest Elementor Version
+    * Bugs updated
+
+Version 1.0.2
+
+    * Added: Global Product Template For Single Product Page
+    * Comportable With Latest WordPress Version
+    * Comportable With Latest Elementor Version
+    * Notice error fixed
+
+Version 1.0.1
+
+    * Comportable With Latest WordPress Version
+    * Comportable With Latest Elementor Version
+    * Fixed: Warning and Depricated Errors
+
+Version 1.0.0
+
+    * First release!
+    * Demo content added
+    * WPML config file updated 

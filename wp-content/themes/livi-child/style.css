@@ -1,0 +1,697 @@
+/*
+ Theme Name:   Livi Child
+ Theme URI:    https://livi.wpengine.com/
+ Description:  Livi Child Theme - Tối ưu chuẩn PM 10 năm cho Trung Tâm Tiếng Trung Mỹ Đức
+ Author:       the WeDesignTech team
+ Template:     livi
+ Version:      2.2.0
+ Text Domain:  livi-child
+*/
+
+/* ===================================================
+   0. HỆ THỐNG TYPOGRAPHY CHUẨN PM 10 NĂM: BE VIETNAM PRO
+   Khắc phục triệt để 100% lỗi phông chữ Tiếng Việt (Broken/Ragged Diacritics)
+   Hỗ trợ hoàn hảo Tiếng Việt có dấu và Ký tự Tiếng Trung (Hanzi)
+   =================================================== */
+:root {
+    --myduc-font-primary: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    
+    /* Thương hiệu & Màu sắc chuẩn phong thủy & nhận diện Trung Tâm Mỹ Đức */
+    --myduc-primary: #C02128;
+    --myduc-primary-dark: #9E1319;
+    --myduc-gold: #D4AF37;
+    --myduc-gold-light: #F3E5AB;
+    --myduc-dark: #1F2421;
+    --myduc-light-bg: #FDFBF7;
+
+    --wdtPrimaryColor: #C02128 !important;
+    --wdtSecondaryColor: #D4AF37 !important;
+    --wdtAccentColor: #E5A823 !important;
+
+    /* Ghi đè toàn bộ biến typography gốc của Theme Livi */
+    --wdtFontTypo_Base: var(--myduc-font-primary) !important;
+    --wdtFontTypo_Alt: var(--myduc-font-primary) !important;
+    --wdtFontTypo_H1: var(--myduc-font-primary) !important;
+    --wdtFontTypo_H2: var(--myduc-font-primary) !important;
+    --wdtFontTypo_H3: var(--myduc-font-primary) !important;
+    --wdtFontTypo_H4: var(--myduc-font-primary) !important;
+    --wdtFontTypo_H5: var(--myduc-font-primary) !important;
+    --wdtFontTypo_H6: var(--myduc-font-primary) !important;
+    --wdtFontTypo_Ext: var(--myduc-font-primary) !important;
+
+    /* Ghi đè biến typography của Elementor Kit */
+    --e-global-typography-primary-font-family: 'Be Vietnam Pro', sans-serif !important;
+    --e-global-typography-secondary-font-family: 'Be Vietnam Pro', sans-serif !important;
+    --e-global-typography-text-font-family: 'Be Vietnam Pro', sans-serif !important;
+    --e-global-typography-accent-font-family: 'Be Vietnam Pro', sans-serif !important;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: var(--myduc-font-primary);
+}
+
+/* Áp dụng triệt để font chữ tiếng Việt cho tất cả các thẻ văn bản */
+body, p, span, a, li, input, button, textarea, select, label, td, th, blockquote, dt, dd,
+h1, h2, h3, h4, h5, h6,
+.elementor,
+.elementor-element,
+.elementor-heading-title,
+.elementor-widget-text-editor,
+.elementor-widget-text-editor *,
+.wdt-heading-holder,
+.wdt-heading-holder *,
+.wdt-primary-nav,
+.wdt-primary-nav *,
+.wdt-header-menu,
+.wdt-header-menu *,
+.wdt-button,
+.wdt-button *,
+.wdt-course-title,
+.wdt-content-title,
+.wdt-sub-title,
+.wdt-testimonial-content,
+.tribe-events,
+.tribe-events * {
+    font-family: var(--myduc-font-primary) !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Chuẩn hóa tỷ lệ dòng & độ thoáng chữ tiếng Việt (chống dính dấu mũ, dấu hỏi/ngã) */
+body {
+    line-height: 1.65;
+    letter-spacing: 0.01em;
+}
+
+h1, h2, h3, h4, h5, h6,
+.elementor-heading-title {
+    line-height: 1.35 !important;
+    letter-spacing: -0.01em !important;
+}
+
+/* Tối ưu hiệu ứng chữ Gradient & Split Heading tiếng Việt */
+.wdt-heading-holder .wdt-heading-deco-wrapper .wdt-heading-title .wdt-split-heading-wrapper {
+    display: inline-block !important;
+    white-space: nowrap !important;
+    padding-right: 4px !important;
+}
+.wdt-heading-holder .wdt-heading-deco-wrapper .wdt-heading-title .wdt-split-heading-wrapper .wdt-split-heading-title {
+    display: inline-block !important;
+    font-family: var(--myduc-font-primary) !important;
+}
+
+/* ===================================================
+   1. NÚT LOGO HÌNH TRÒN CHUẨN THƯƠNG HIỆU (CIRCULAR LOGO EMBLEM)
+   Phong cách Huy Hiệu Hoàng Gia - Biểu tượng chữ "德"
+   =================================================== */
+.wdt-logo-container {
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.wdt-logo-container a,
+.site-logo a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    padding: 3px !important;
+    background: linear-gradient(135deg, #D4AF37 0%, #FFF2B2 50%, #C02128 100%) !important;
+    box-shadow: 0 4px 16px rgba(192, 33, 40, 0.3) !important;
+    transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    text-decoration: none !important;
+}
+
+.wdt-logo-container a img,
+.wdt-logo-container img,
+.site-logo img,
+.custom-logo {
+    width: 62px !important;
+    height: 62px !important;
+    max-width: 62px !important;
+    min-width: 62px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 2px solid #FFFFFF !important;
+    display: block !important;
+    background-color: #B71C1C !important;
+    transition: transform 0.35s ease !important;
+}
+
+/* Hiệu ứng rê chuột vào Nút Logo tròn */
+.wdt-logo-container a:hover,
+.site-logo a:hover {
+    transform: scale(1.08) rotate(4deg) !important;
+    box-shadow: 0 6px 22px rgba(212, 175, 55, 0.55), 0 0 0 2px rgba(192, 33, 40, 0.3) !important;
+    background: linear-gradient(135deg, #C02128 0%, #D4AF37 100%) !important;
+}
+
+/* ===================================================
+   2. THANH MENU ĐIỀU HƯỚNG CHUẨN PM 10 NĂM KINH NGHIỆM
+   Tối ưu Typography, Khoảng cách, Dropdown & Trạng thái Active
+   =================================================== */
+.wdt-header-menu .wdt-primary-nav {
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Item Menu Cấp 1 (Top-level Items) */
+.wdt-header-menu .wdt-primary-nav > li > a {
+    padding: 12px 14px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: #1F2421 !important;
+    letter-spacing: 0.2px !important;
+    transition: color 0.25s ease, transform 0.2s ease !important;
+    white-space: nowrap !important;
+}
+
+/* Rê chuột vào Item Menu */
+.wdt-header-menu .wdt-primary-nav > li:hover > a {
+    color: var(--myduc-primary) !important;
+}
+
+/* Item Đang Được Kích Hoạt (Current Active Item) */
+.wdt-header-menu .wdt-primary-nav > li.current-menu-item > a,
+.wdt-header-menu .wdt-primary-nav > li.current-page-ancestor > a,
+.wdt-header-menu .wdt-primary-nav > li.current-menu-ancestor > a {
+    color: var(--myduc-primary) !important;
+    font-weight: 700 !important;
+}
+
+/* Thanh Gạch Chân Chuyển Động (Slide Underline) */
+.wdt-header-menu .menu-container .wdt-primary-nav ~ .slide-underline {
+    background-color: var(--myduc-primary) !important;
+    height: 3px !important;
+    border-radius: 3px !important;
+    box-shadow: 0 2px 8px rgba(192, 33, 40, 0.4) !important;
+}
+
+/* ===================================================
+   3. MENU CON THẢ XUỐNG (DROPDOWN SUB-MENU)
+   Hiệu ứng kính mờ, Bo góc mềm, Viền chỉ đỏ sang trọng
+   =================================================== */
+.wdt-header-menu ul.sub-menu {
+    background: #FFFFFF !important;
+    border: none !important;
+    border-top: 3.5px solid var(--myduc-primary) !important;
+    border-radius: 0 0 10px 10px !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12) !important;
+    padding: 10px 0 !important;
+    min-width: 230px !important;
+    animation: myducSubmenuFade 0.25s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+@keyframes myducSubmenuFade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Item Trong Dropdown */
+.wdt-header-menu ul.sub-menu li a {
+    padding: 10px 22px !important;
+    font-size: 14.5px !important;
+    font-weight: 500 !important;
+    color: #333333 !important;
+    display: block !important;
+    transition: all 0.25s ease !important;
+}
+
+.wdt-header-menu ul.sub-menu li a:hover {
+    color: var(--myduc-primary) !important;
+    background-color: #FFF5F5 !important;
+    padding-left: 28px !important; /* Hiệu ứng thụt lề mượt mà */
+}
+
+/* ===================================================
+   4. NÚT CTA "TƯ VẤN NGAY" CUỐI MENU (CONVERSION BOOSTER)
+   Tiêu chuẩn vàng của PM để tăng tỷ lệ chốt học viên
+   =================================================== */
+.myduc-header-cta-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: linear-gradient(135deg, #C02128 0%, #D32F2F 100%) !important;
+    color: #FFFFFF !important;
+    padding: 8px 18px !important;
+    margin-left: 10px !important;
+    border-radius: 25px !important;
+    font-weight: 700 !important;
+    font-size: 13.5px !important;
+    letter-spacing: 0.3px !important;
+    border: 1.5px solid #D4AF37 !important;
+    box-shadow: 0 4px 12px rgba(192, 33, 40, 0.3) !important;
+    transition: all 0.3s ease !important;
+    white-space: nowrap !important;
+}
+
+.myduc-header-cta-btn:hover {
+    background: linear-gradient(135deg, #D4AF37 0%, #E5A823 100%) !important;
+    color: #1F2421 !important;
+    border-color: #C02128 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 18px rgba(212, 175, 55, 0.45) !important;
+}
+
+/* ===================================================
+   5. NÚT CHUNG & BỘ LIÊN HỆ ĐA KÊNH
+   =================================================== */
+.wdt-button, button.button, input[type="submit"].button, .button.button-primary,
+.elementor-button {
+    background-color: var(--myduc-primary) !important;
+    border-color: var(--myduc-primary) !important;
+    color: #fff !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.wdt-button:hover, button.button:hover, input[type="submit"].button:hover,
+.elementor-button:hover {
+    background-color: var(--myduc-gold) !important;
+    border-color: var(--myduc-gold) !important;
+    color: #1F2421 !important;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35) !important;
+}
+
+.myduc-omnichannel-widget {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    z-index: 999999;
+}
+
+.omni-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+.omni-btn:hover {
+    transform: scale(1.12);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+}
+
+.omni-btn svg { width: 26px; height: 26px; }
+
+.omni-phone {
+    background: linear-gradient(135deg, #C02128 0%, #E53935 100%);
+    position: relative;
+}
+
+.omni-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0.7;
+    animation: omni-pulse-ring 1.8s infinite;
+    z-index: -1;
+}
+
+@keyframes omni-pulse-ring {
+    0% { transform: scale(1); opacity: 0.8; }
+    70% { transform: scale(1.6); opacity: 0; }
+    100% { transform: scale(1.8); opacity: 0; }
+}
+
+.omni-zalo { background: linear-gradient(135deg, #0068FF 0%, #0084FF 100%); }
+.omni-zalo .omni-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #FF0000;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 8px;
+}
+.omni-messenger { background: linear-gradient(135deg, #00B2FF 0%, #006AFF 50%, #9013FE 100%); }
+
+.omni-social-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 8px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.omni-sub-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s ease;
+}
+.omni-sub-btn:hover { transform: scale(1.15); }
+.omni-sub-btn svg { width: 20px; height: 20px; }
+.omni-fb { background: #1877F2; }
+.omni-tiktok { background: #000000; }
+.omni-youtube { background: #FF0000; }
+.omni-email { background: #EA4335; }
+
+.omni-tooltip {
+    position: absolute;
+    right: 64px;
+    background: rgba(31, 36, 33, 0.92);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    font-weight: 500;
+}
+.omni-btn:hover .omni-tooltip { opacity: 1; }
+
+/* Chia sẻ MXH */
+.myduc-social-share-box {
+    margin: 35px 0 20px 0;
+    padding: 16px 20px;
+    background: #FDFBF7;
+    border: 1px solid #F0E6D2;
+    border-left: 4px solid var(--myduc-primary);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.myduc-social-share-box .share-title { font-weight: 700; color: var(--myduc-dark); font-size: 14px; }
+.myduc-social-share-box .share-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none !important;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    color: #fff !important;
+}
+.share-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+.share-btn svg { width: 15px; height: 15px; }
+.share-fb { background-color: #1877F2 !important; }
+.share-zalo { background-color: #0068FF !important; }
+.share-copy { background-color: #555555 !important; }
+
+@media (max-width: 1024px) {
+    .wdt-logo-container a img,
+    .wdt-logo-container img {
+        width: 52px !important;
+        height: 52px !important;
+        max-width: 52px !important;
+        min-width: 52px !important;
+    }
+    .myduc-header-cta-btn { display: none !important; }
+}
+
+@media (max-width: 768px) {
+    .myduc-omnichannel-widget { bottom: 16px; right: 14px; gap: 10px; }
+    .omni-btn { width: 46px; height: 46px; }
+    .omni-btn svg { width: 22px; height: 22px; }
+    .omni-tooltip { display: none; }
+}
+
+/* ===================================================
+   6. HEADER TITLE BANNER & BREADCRUMB HOÀNG GIA CHUẨN PM
+   Khắc phục dải xám đơn điệu, chuyển sang tông Đỏ Thẫm - Vàng Gold Mỹ Đức
+   Loại bỏ hoàn toàn lỗi banner bị nhân đôi (Duplicate Breadcrumb)
+   =================================================== */
+
+/* Tự động ẩn bất kỳ banner nhân đôi nào nếu còn sót lại */
+.main-title-section-wrapper ~ .main-title-section-wrapper {
+    display: none !important;
+}
+
+.main-title-section-wrapper {
+    position: relative !important;
+    overflow: hidden !important;
+    background: linear-gradient(135deg, #1A0507 0%, #3B0A10 40%, #7D1117 80%, #A5171E 100%) !important;
+    border-bottom: 3.5px solid var(--myduc-gold) !important;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22) !important;
+    float: none !important;
+    width: 100% !important;
+}
+
+/* Hiệu ứng tia sáng hoàng gia & hoa văn chìm */
+.main-title-section-wrapper::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 85% 15%, rgba(212, 175, 55, 0.22) 0%, transparent 55%),
+                radial-gradient(circle at 10% 90%, rgba(192, 33, 40, 0.35) 0%, transparent 50%) !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+}
+
+/* Xóa bỏ hoàn toàn lớp màu nền xám mờ cũ của theme */
+.main-title-section-wrapper > .main-title-section-bg,
+.main-title-section-wrapper > .main-title-section-bg:after,
+.dark-bg-breadcrumb .main-title-section-bg {
+    display: none !important;
+}
+
+.main-title-section-container {
+    padding: 48px 0 54px !important;
+    position: relative !important;
+    z-index: 2 !important;
+    float: none !important;
+    text-align: center !important;
+}
+
+.main-title-section {
+    float: none !important;
+    margin-bottom: 12px !important;
+}
+
+.main-title-section h1 {
+    font-family: var(--myduc-font-primary) !important;
+    font-size: clamp(2.1rem, 1.8rem + 1.2vw, 3rem) !important;
+    font-weight: 800 !important;
+    color: #FFFFFF !important;
+    letter-spacing: -0.01em !important;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.45) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.breadcrumb {
+    font-family: var(--myduc-font-primary) !important;
+    font-size: 14.5px !important;
+    font-weight: 500 !important;
+    float: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.breadcrumb a {
+    color: #F3E5AB !important; /* Gold sáng */
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    transition: all 0.25s ease !important;
+}
+
+.breadcrumb a:hover {
+    color: #FFFFFF !important;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.7) !important;
+}
+
+.breadcrumb .breadcrumb-default-delimiter:before {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    height: 13px !important;
+    width: 1.5px !important;
+}
+
+.breadcrumb span.current {
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    padding: 4px 14px !important;
+    border-radius: 20px !important;
+    border: 1px solid rgba(212, 175, 55, 0.35) !important;
+    backdrop-filter: blur(4px) !important;
+}
+
+/* ===================================================
+   9. TỐI ƯU HÓA GIAO DIỆN HERO BANNER (CHUẨN PM 10 NĂM)
+   - Badge Học viên & Cam kết: Gọn gàng, không che mặt học viên, icon sắc nét
+   - Tiêu đề Hero: Gradient Hoàng Gia Crimson-Gold, ngắt dòng chuẩn xác
+   - Thanh tìm kiếm: Pill shape hiện đại, nút gradient đỏ đô sang trọng
+   - Chữ chìm mờ Watermark: Tinh tế, chuẩn nhận diện Cô Mỹ Đức
+   =================================================== */
+
+/* Gradient Hoàng Gia cho cụm chữ nổi bật "TIẾNG TRUNG" */
+.wdt-heading-holder .wdt-heading-deco-wrapper .wdt-heading-title .wdt-split-heading-wrapper {
+    background-image: linear-gradient(135deg, #A5171E 0%, #D4AF37 55%, #B8860B 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    font-weight: 800 !important;
+    padding-right: 6px !important;
+}
+
+/* 2 Thẻ nổi (Floating Badges) bên trái */
+.wdt-support-block-b .wdt-icon-box-holder .wdt-content-item,
+.wdt-support-block-a .wdt-icon-box-holder .wdt-content-item {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1.5px solid rgba(212, 175, 55, 0.4) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 12px 35px rgba(26, 5, 7, 0.12) !important;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    max-width: 260px !important;
+}
+
+.wdt-support-block-b .wdt-icon-box-holder .wdt-content-item:hover,
+.wdt-support-block-a .wdt-icon-box-holder .wdt-content-item:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 16px 40px rgba(165, 23, 30, 0.2) !important;
+    border-color: #D4AF37 !important;
+}
+
+.wdt-support-block-b .wdt-icon-box-holder .wdt-content-item {
+    padding: 14px 20px 16px !important;
+}
+
+.wdt-support-block-a .wdt-icon-box-holder .wdt-content-item {
+    padding: 12px 20px !important;
+}
+
+/* Icon tròn trong thẻ nổi */
+.wdt-support-block-a .wdt-icon-box-holder .wdt-content-item > div.wdt-content-media-group .wdt-content-icon span,
+.wdt-support-block-b .wdt-icon-box-holder .wdt-content-item > div.wdt-content-media-group .wdt-content-icon span {
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: linear-gradient(135deg, #A5171E 0%, #D4AF37 100%) !important;
+    color: #ffffff !important;
+    font-size: 20px !important;
+    border-radius: 50% !important;
+    box-shadow: 0 4px 12px rgba(165, 23, 30, 0.3) !important;
+}
+
+.wdt-support-block-a .wdt-icon-box-holder .wdt-content-item > div.wdt-content-media-group .wdt-content-icon span svg,
+.wdt-support-block-b .wdt-icon-box-holder .wdt-content-item > div.wdt-content-media-group .wdt-content-icon span svg {
+    width: 24px !important;
+    height: 24px !important;
+    fill: #ffffff !important;
+}
+
+.wdt-support-block-b .wdt-icon-box-holder .wdt-content-item > div.wdt-content-detail-group {
+    margin-top: 10px !important;
+    text-align: center !important;
+}
+
+.wdt-support-block-b .wdt-icon-box-holder .wdt-content-item > div.wdt-content-detail-group .wdt-content-subtitle,
+.wdt-support-block-a .wdt-icon-box-holder .wdt-content-item > div.wdt-content-detail-group .wdt-content-subtitle {
+    font-size: 22px !important;
+    font-weight: 800 !important;
+    color: #A5171E !important;
+    margin-bottom: 2px !important;
+    line-height: 1.2 !important;
+}
+
+.wdt-support-block-b .wdt-icon-box-holder .wdt-content-item > div.wdt-content-detail-group .wdt-content-title h5,
+.wdt-support-block-a .wdt-icon-box-holder .wdt-content-item > div.wdt-content-detail-group .wdt-content-title h5 {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #4A4A4A !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    margin: 0 !important;
+}
+
+/* Thanh tìm kiếm khóa học (Hero Course Search) */
+.wdt-custom-main-slider-course-search .dtlms-courses-search-filter {
+    position: relative !important;
+}
+
+.wdt-custom-main-slider-course-search .dtlms-courses-search-filter input.dtlms-courses-search-text {
+    height: 54px !important;
+    border-radius: 30px 0 0 30px !important;
+    border: 2px solid #E2E8F0 !important;
+    padding-left: 22px !important;
+    font-size: 14.5px !important;
+    color: #1A0507 !important;
+    background: #FFFFFF !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04) !important;
+}
+
+.wdt-custom-main-slider-course-search .dtlms-courses-search-filter input.dtlms-courses-search-text:focus {
+    border-color: #A5171E !important;
+    box-shadow: 0 0 0 3px rgba(165, 23, 30, 0.12) !important;
+}
+
+.wdt-custom-main-slider-course-search input.dtlms-courses-listing-searchform-submit {
+    height: 54px !important;
+    border-radius: 0 30px 30px 0 !important;
+    background: linear-gradient(135deg, #A5171E 0%, #800C12 100%) !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    padding: 0 28px !important;
+    border: none !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 15px rgba(165, 23, 30, 0.3) !important;
+    transition: all 0.25s ease !important;
+}
+
+.wdt-custom-main-slider-course-search input.dtlms-courses-listing-searchform-submit:hover {
+    background: linear-gradient(135deg, #7A0A10 0%, #A5171E 100%) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 20px rgba(165, 23, 30, 0.45) !important;
+}
+
+/* Watermark Background Text */
+.wdt-heading-holder .wdt-heading-background-text-wrapper .wdt-heading-background-text {
+    opacity: 0.045 !important;
+    font-size: 90px !important;
+    letter-spacing: 4px !important;
+    font-weight: 900 !important;
+    color: #1A0507 !important;
+}
+

@@ -1,0 +1,1 @@
+<?php echo apply_filters( 'livi_footer_get_template_part', livi_get_template_part( 'footer', 'templates/footer', '', array() ) ); ?>

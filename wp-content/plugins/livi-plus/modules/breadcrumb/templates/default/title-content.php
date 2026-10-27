@@ -1,0 +1,14 @@
+<?php 
+$home = isset($home) ? $home : __('Home', 'livi');
+$home_link = isset($home_link) ? $home_link : home_url();
+$delimiter = isset($delimiter) ? $delimiter : ' &raquo; ';
+?>
+<section class="main-title-section-wrapper <?php echo esc_attr( $wrapper_classes );?>">
+    <div class="main-title-section-container">
+        <div class="container">
+            <div class="main-title-section"><?php echo livi_breadcrumb_title();?></div>
+            <?php echo livi_breadcrumbs( array( 'text' => $home, 'link' => $home_link ), $delimiter );?>
+        </div>
+    </div>
+    <div class="main-title-section-bg"></div>
+</section>

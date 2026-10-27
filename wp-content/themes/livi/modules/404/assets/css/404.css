@@ -1,0 +1,59 @@
+/*--------------------------------------------------------------
+    404 Error / Not-found Page
+--------------------------------------------------------------*/
+
+	.error404, .error404 > .wrapper { width:100%; height:100%; }
+	.error404 > .wrapper { display: flex; padding: 35px 0 50px; }
+
+	.center-content-wrapper { display:table; width:100%; height:100%; }
+	.center-content-wrapper .center-content { display:table-cell; width:100%; height:100%; vertical-align:middle; }
+
+	.error404 h1, .error404 h2, .error404 h3, .error404 h4, .error404 h5, .error404 h6 { line-height: 1em; }
+	.error404 h2 { font-size: clamp(7.5rem, 5.4985rem + 11.0429vw, 18.75rem); font-weight: 800; display: inline-block; line-height: 1; 
+		top: 0px; position: relative; margin: 0px; -webkit-text-stroke: 2px var(--wdtPrimaryColor); -webkit-text-fill-color: transparent; text-transform: initial; -webkit-background-clip: text; background-clip: text; 
+		background-image: linear-gradient(45deg, var(--wdtPrimaryColor), var(--wdtPrimaryColor)); background-repeat: no-repeat; 
+		background-position: bottom; background-size: 100% 110px; }
+	.error404 h3 { font-size: clamp(1.875rem, 1.4423rem + 1.9231vw, 3.75rem); font-weight: 700; letter-spacing: 0px; margin-top: 0px; margin-bottom: clamp(0.625rem, 0.4582rem + 0.9202vw, 1.5625rem); }
+	.error404 h4 { font-size:60px; font-weight:300; }
+	.error404 .wdt-button, .error404 .wdt-button.type2 { padding: var(--wdtPadding_Btn); display: inline-block; letter-spacing:0; }
+	.error404 .type2 #wdt-style-picker ul li::before, .error404 #wdt-style-picker ul li:before { content:none; }
+	.error404 .type2 #wdt-style-picker h3, .error404 #wdt-style-picker h3 { letter-spacing:0; text-transform:capitalize; }
+	.error404 #wdt-style-picker h2 { top:0; }
+	.error404 .container p { font-size: var(--wdtFontSize_Base); width: 100%; max-width: 650px; margin-left: auto; margin-right: auto; }
+
+	.error-box-inner * { text-align: center; }
+
+	.error404 .menu-links { margin:40px 0; }
+	.error404 .menu-links li { display:inline-block; text-transform:uppercase; font-size:16px; padding:0; margin:0 2px 5px; }
+	.error404 .menu-links li a { padding:7px 20px; display:inline-block; }
+
+	.error404 #searchform .wdt-search-icon { display:none; }
+	.error404 #searchform { display: inline-block; margin: 0 auto; position: relative; width: 60%; }
+	.error404 #searchform input[type="text"], .error404 #searchform input[type="submit"] { height:52px; }
+	.error404 #searchform input[type="submit"] { border-radius: 0; padding: 13px 20px 13px; position: absolute; right: 0; top: 0; margin-top:0; }
+
+	.error404 .container { height:100%; text-align:center; }
+
+
+
+/*--------------------------------------------------------------
+	Default Colors
+--------------------------------------------------------------*/
+
+.error404 .wdt-dark-bg, .error404 .menu-links li:hover a { background: var(--wdtTertiaryColor); }
+.error404 .menu-links li a { background:rgba(var(--wdtHeadAltColorRgb),0.05); }
+
+.error404 .wdt-button, .error404 .wdt-button.type2, .error404 .menu-links li:hover a { color: var(--wdtAccentTxtColor); }
+
+.error404 .wdt-button { background-image: linear-gradient(to bottom, var(--wdtPrimaryColor) 0%, var(--wdtSecondaryColor) 51%, var(--wdtPrimaryColor) 100%); background-repeat: repeat; background-size: cover; background-position: 100% 10px; margin-top: clamp(0.875rem, 0.7638rem + 0.6135vw, 1.5rem); }
+.error404 .wdt-button:hover { background-position: 100% -10px; color: var(--wdtAccentTxtColor); }
+
+.error404 .menu-links li a { color: var(--wdtHeadAltColor); }
+
+
+
+/*--------------------------------------------------------------
+	Accents
+--------------------------------------------------------------*/
+
+.error404 h2 { color: var(--wdtPrimaryColor); }

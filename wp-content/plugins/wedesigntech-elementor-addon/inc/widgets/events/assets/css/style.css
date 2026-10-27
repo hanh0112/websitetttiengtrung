@@ -1,0 +1,8 @@
+/* Event_Detail */
+
+.tribe_events-template [class*=tec-events-elementor-event-widget] [class*=tec-events-elementor-event-widget]{
+   color: var(--wdtHeadAltColor);
+}
+.tribe_events-template [class*=tec-events-elementor-event-widget]{
+   color: var(--wdtHeadAltColor);
+}
