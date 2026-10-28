@@ -188,27 +188,21 @@ if(!function_exists('dtlms_modify_comment')) {
 
 function dtlms_comment_rating_display($rating_value) {
 
-	$output = "";
+	$output = '';
 
 	if (empty($rating_value) || floatval($rating_value) <= 0) {
 		$rating_value = 5;
 	}
 
-	$average_rating_half_empty = "";
-	if (strpos((string)$rating_value, ".") !== false) {
-		$average_rating_half_empty = ceil($rating_value);
-	}
-
-	$average_rating_ceil = ceil($rating_value);
-	$average_rating_floor = floor($rating_value);
+	$rating = round(floatval($rating_value));
+	if ($rating < 1) $rating = 5;
+	if ($rating > 5) $rating = 5;
 
 	for ($i = 1; $i <= 5; $i++) {
-		if ($i <= $average_rating_floor) {
-			$output .= '<span class="fas fa-star zmdi zmdi-star" data-value="' . esc_attr($i) . '"></span>';
-		} else if ($average_rating_half_empty != "" && $average_rating_half_empty == $i) {
-			$output .= '<span class="fas fa-star-half-alt zmdi zmdi-star-half" data-value="' . esc_attr($i) . '"></span>';
+		if ($i <= $rating) {
+			$output .= '<span class="myduc-star myduc-star-full" data-value="' . esc_attr($i) . '">&#9733;</span>';
 		} else {
-			$output .= '<span class="far fa-star zmdi zmdi-star-outline" data-value="' . esc_attr($i) . '"></span>';
+			$output .= '<span class="myduc-star myduc-star-empty" data-value="' . esc_attr($i) . '">&#9734;</span>';
 		}
 	}
 

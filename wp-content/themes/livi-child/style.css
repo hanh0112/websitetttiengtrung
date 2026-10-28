@@ -845,25 +845,34 @@ h1, h2, h3, h4, h5, h6,
 
 /* ===================================================================
    12. TIÊU CHUẨN PM 10 NĂM: TỐI ƯU CÂN ĐỐI ĐỒNG ĐỀU Ô KHÓA HỌC (TYPE 3)
-   100% Cân bằng chiều cao, Thước đo pixel-perfect, Sắp xếp thông số khoa học
+   100% Tương thích Isotope, Cân bằng chiều cao, Sao chuẩn Unicode, 50/50 CTA
    =================================================================== */
 
-/* Khung bọc lưới hiển thị khóa học */
-.dtlms-courses-listing-containers.grid {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    margin: 0 -15px !important;
+/* Khung bọc lưới hiển thị khóa học - Đảm bảo khối dòng chuẩn 100% */
+.dtlms-courses-listing-containers {
+    display: block !important;
+    width: 100% !important;
+    clear: both !important;
+    position: relative !important;
 }
 
-.dtlms-courses-listing-containers.grid .type3.dtlms-courselist-item-wrapper.grid-item {
-    display: flex !important;
-    flex-direction: column !important;
-    margin-bottom: 30px !important;
+.dtlms-courses-listing-items {
+    display: block !important;
+    width: 100% !important;
+    clear: both !important;
+    position: relative !important;
+}
+
+/* Kích thước cột Isotope 3 cột desktop chuẩn xác */
+.dtlms-courses-listing-items .dtlms-column.dtlms-one-third,
+.dtlms-courses-listing-items .grid-sizer.dtlms-one-third {
+    width: 32% !important;
     box-sizing: border-box !important;
+    margin-bottom: 30px !important;
 }
 
-/* Thẻ khóa học - Đồng nhất chiều cao 100%, Đổ bóng & Bo góc chuẩn EdTech */
-.type3.dtlms-courselist-item-wrapper.grid-item .dtlms-courselist-details {
+/* Thẻ khóa học - Đồng nhất chiều cao, Nổi khối sang trọng */
+.type3.dtlms-courselist-item-wrapper .dtlms-courselist-details {
     background: #FFFFFF !important;
     border: 1.5px solid #EBEBEB !important;
     border-radius: 14px !important;
@@ -872,14 +881,15 @@ h1, h2, h3, h4, h5, h6,
     flex-direction: column !important;
     justify-content: space-between !important;
     height: 100% !important;
-    min-height: 380px !important;
+    min-height: 400px !important;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04) !important;
     transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
     position: relative !important;
     box-sizing: border-box !important;
+    width: 100% !important;
 }
 
-.type3.dtlms-courselist-item-wrapper.grid-item:hover .dtlms-courselist-details {
+.type3.dtlms-courselist-item-wrapper:hover .dtlms-courselist-details {
     border-color: var(--myduc-primary, #C02128) !important;
     box-shadow: 0 12px 30px rgba(192, 33, 40, 0.12) !important;
     transform: translateY(-5px) !important;
@@ -896,7 +906,7 @@ h1, h2, h3, h4, h5, h6,
 /* Hàng trên cùng: Badge & Sao đánh giá cân xứng tuyệt đối */
 .type3.dtlms-courselist-item-wrapper .dtlms-courselist-details-feautured-inner {
     display: flex !important;
-    flex-direction: row !important;
+    flex-direction: row-reverse !important;
     align-items: center !important;
     justify-content: space-between !important;
     min-height: 28px !important;
@@ -905,7 +915,7 @@ h1, h2, h3, h4, h5, h6,
     width: 100% !important;
 }
 
-/* Huy hiệu (Badge) sang trọng */
+/* Huy hiệu (Badge) chuyên nghiệp */
 .type3.dtlms-courselist-item-wrapper .dtlms-course-listing-featured {
     margin: 0 !important;
     display: inline-flex !important;
@@ -923,9 +933,10 @@ h1, h2, h3, h4, h5, h6,
     display: inline-flex !important;
     align-items: center !important;
     line-height: 1.2 !important;
+    white-space: nowrap !important;
 }
 
-/* Sao đánh giá (Gold Stars) */
+/* Sao đánh giá (Unicode Stars - 100% Không Lỗi Phông Ô Vuông) */
 .type3.dtlms-courselist-item-wrapper .dtlms-courselist-ratings-container {
     margin: 0 !important;
     display: inline-flex !important;
@@ -935,14 +946,30 @@ h1, h2, h3, h4, h5, h6,
 .type3.dtlms-courselist-item-wrapper .dtlms-courselist-ratings {
     display: inline-flex !important;
     align-items: center !important;
-    gap: 3px !important;
+    gap: 2px !important;
     margin: 0 !important;
     line-height: 1 !important;
 }
 
-.type3.dtlms-courselist-item-wrapper .dtlms-courselist-ratings span {
-    font-size: 13.5px !important;
+.dtlms-courselist-ratings .myduc-star {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1 !important;
+    display: inline-block !important;
+    margin-right: 2px !important;
+}
+
+.dtlms-courselist-ratings .myduc-star.myduc-star-full {
     color: #FFB800 !important;
+}
+
+.dtlms-courselist-ratings .myduc-star.myduc-star-empty {
+    color: #CBD5E1 !important;
+}
+
+.dtlms-courselist-ratings .myduc-star:before {
+    display: none !important;
+    content: none !important;
 }
 
 /* Tiêu đề khóa học: Khóa cứng độ cao 2 dòng đều 100% cho mọi thẻ */
@@ -950,7 +977,8 @@ h1, h2, h3, h4, h5, h6,
     width: 100% !important;
 }
 
-.type3.dtlms-courselist-item-wrapper .dtlms-courselist-metadata-holder h5 {
+.type3.dtlms-courselist-item-wrapper .dtlms-courselist-metadata-holder h5,
+.type3.dtlms-courselist-item-wrapper .dtlms-courselist-details-inner h5 {
     font-size: 16.5px !important;
     font-weight: 700 !important;
     line-height: 1.4 !important;
@@ -964,13 +992,13 @@ h1, h2, h3, h4, h5, h6,
     padding-right: 0 !important;
 }
 
-.type3.dtlms-courselist-item-wrapper .dtlms-courselist-metadata-holder h5 a {
+.type3.dtlms-courselist-item-wrapper .dtlms-courselist-details-inner h5 a {
     color: #1F2421 !important;
     transition: color 0.25s ease !important;
     text-decoration: none !important;
 }
 
-.type3.dtlms-courselist-item-wrapper:hover .dtlms-courselist-metadata-holder h5 a {
+.type3.dtlms-courselist-item-wrapper:hover .dtlms-courselist-details-inner h5 a {
     color: var(--myduc-primary, #C02128) !important;
 }
 
@@ -989,7 +1017,7 @@ h1, h2, h3, h4, h5, h6,
     padding-right: 0 !important;
 }
 
-/* Hàng thông số: Học phần | Thời lượng | Học viên (Thẳng thớm, có phân cách tinh tế) */
+/* Hàng thông số: Học phần | Thời lượng | Học viên */
 div[class*="list-item-wrapper"].type3 .dtlms-courselist-center-details-section {
     display: flex !important;
     align-items: center !important;
@@ -1039,7 +1067,7 @@ div[class*="list-item-wrapper"].type3 .dtlms-courselist-center-details-section p
     padding-top: 4px !important;
 }
 
-/* Giá học phí nổi bật, chuẩn nhận diện đỏ Mỹ Đức */
+/* Giá học phí nổi bật */
 .type3.dtlms-courselist-item-wrapper .dtlms-coursedetail-price-details {
     display: flex !important;
     align-items: baseline !important;
@@ -1086,6 +1114,33 @@ div[class*="list-item-wrapper"].type3 .dtlms-courselist-center-details-section p
     border-radius: 25px !important;
     white-space: nowrap !important;
     box-sizing: border-box !important;
+}
+
+/* Phân trang căn giữa đẹp mắt */
+.dtlms-courses-listing-containers .dtlms-pagination {
+    width: 100% !important;
+    clear: both !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-top: 35px !important;
+    padding: 15px 0 !important;
+}
+
+/* Responsive cho Tablet và Mobile */
+@media (max-width: 991px) {
+    .dtlms-courses-listing-items .dtlms-column.dtlms-one-third,
+    .dtlms-courses-listing-items .grid-sizer.dtlms-one-third {
+        width: 48% !important;
+        margin-left: 2% !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .dtlms-courses-listing-items .dtlms-column.dtlms-one-third,
+    .dtlms-courses-listing-items .grid-sizer.dtlms-one-third {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
 }
 
 
