@@ -48,15 +48,13 @@ if(!function_exists('dtlms_get_item_price_html')) {
 			$woo_sale_price = $product->get_sale_price();
 
 			if($woo_regular_price != '' && $woo_sale_price != '') {
-
-				$woo_price .= '<del><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">'.get_woocommerce_currency_symbol().'</span>'.$woo_regular_price.'</span></del>';
-
-				$woo_price .= '<ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">'.get_woocommerce_currency_symbol().'</span>'.$woo_sale_price.'</span></ins>';
-
+				$formatted_regular = number_format((float)$woo_regular_price, 0, ',', '.') . ' ₫';
+				$formatted_sale    = number_format((float)$woo_sale_price, 0, ',', '.') . ' ₫';
+				$woo_price .= '<del><span class="woocommerce-Price-amount amount">' . $formatted_regular . '</span></del> ';
+				$woo_price .= '<ins><span class="woocommerce-Price-amount amount myduc-price-highlight">' . $formatted_sale . '</span></ins>';
 			} else if($woo_regular_price != '') {
-
-				$woo_price .= '<ins><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">'.get_woocommerce_currency_symbol().'</span>'.$woo_regular_price.'</span></ins>';
-
+				$formatted_price = number_format((float)$woo_regular_price, 0, ',', '.') . ' ₫';
+				$woo_price .= '<ins><span class="woocommerce-Price-amount amount myduc-price-highlight">' . $formatted_price . '</span></ins>';
 			}
 
 		}

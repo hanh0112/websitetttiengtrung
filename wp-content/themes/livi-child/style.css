@@ -695,3 +695,126 @@ h1, h2, h3, h4, h5, h6,
     color: #1A0507 !important;
 }
 
+/* ==========================================================================
+   LOẠI BỎ TOÀN BỘ PHẦN THANH TOÁN & GIỎ HÀNG (CATALOG & LEAD GEN MODE)
+   Tiêu chuẩn PM 10 năm kinh nghiệm: UI sang trọng, tập trung tỷ lệ chuyển đổi
+   ========================================================================== */
+
+/* 1. Ẩn Icon giỏ hàng trên Header, Menu & Mini-Cart Drawer */
+.wdt-header-icons-list-item.cart-item,
+.wdt-shop-menu-icon,
+.wdt-shop-cart-widget,
+.wdt-shop-cart-widget-overlay,
+.activate-sidebar-widget,
+.cart-notification-widget,
+.cart-notification,
+.wdt-shop-menu-cart-icon,
+.wdt-shop-menu-cart-totals,
+.wdt-shop-menu-cart-number {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* 2. Định dạng Nút Kêu Gọi Hành Động (CTA) cho Khóa Học */
+.myduc-course-cta-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    flex-wrap: wrap !important;
+    margin-top: 10px !important;
+}
+
+/* Nút Tư Vấn Zalo (Xanh Zalo nhận diện cao, thân thiện) */
+.myduc-course-btn-zalo {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    background: #0068FF !important;
+    color: #FFFFFF !important;
+    padding: 9px 18px !important;
+    border-radius: 25px !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    text-transform: none !important;
+    letter-spacing: 0.2px !important;
+    box-shadow: 0 4px 12px rgba(0, 104, 255, 0.28) !important;
+    transition: all 0.25s ease !important;
+    border: none !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+}
+
+.myduc-course-btn-zalo:hover {
+    background: #0052cc !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 18px rgba(0, 104, 255, 0.4) !important;
+}
+
+.myduc-course-btn-zalo i {
+    font-size: 15px !important;
+}
+
+/* Nút Đăng Ký Tư Vấn (Màu Đỏ Nhãn Hiệu Mỹ Đức Sang Trọng) */
+.myduc-course-btn-register {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    background: linear-gradient(135deg, #A5171E 0%, #C41E24 100%) !important;
+    color: #FFFFFF !important;
+    padding: 9px 18px !important;
+    border-radius: 25px !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    text-transform: none !important;
+    letter-spacing: 0.2px !important;
+    box-shadow: 0 4px 12px rgba(165, 23, 30, 0.3) !important;
+    transition: all 0.25s ease !important;
+    border: none !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+}
+
+.myduc-course-btn-register:hover {
+    background: linear-gradient(135deg, #8A0E14 0%, #A5171E 100%) !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 18px rgba(165, 23, 30, 0.45) !important;
+}
+
+.myduc-course-btn-register i {
+    font-size: 15px !important;
+}
+
+/* 3. Tối ưu hiển thị Học Phí Tiếng Việt Sang Trọng */
+.dtlms-coursedetail-price-details .dtlms-price-status.dtlms-cost,
+.dtlms-coursedetail-price-details ins,
+.myduc-price-highlight {
+    font-size: 22px !important;
+    font-weight: 800 !important;
+    color: #A5171E !important;
+    letter-spacing: -0.3px !important;
+    text-decoration: none !important;
+    font-family: 'Be Vietnam Pro', sans-serif !important;
+}
+
+.dtlms-coursedetail-price-details del {
+    font-size: 14px !important;
+    color: #94A3B8 !important;
+    margin-right: 6px !important;
+}
+
+/* 4. Ẩn triệt để bất kỳ nút add-to-cart nào còn sót */
+.add_to_cart_button,
+.ajax_add_to_cart,
+.single_add_to_cart_button,
+.woocommerce-cart-form,
+.wc-proceed-to-checkout {
+    display: none !important;
+}
+
+

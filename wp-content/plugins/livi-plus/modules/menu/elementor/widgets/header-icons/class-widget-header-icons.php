@@ -281,7 +281,7 @@ class Elementor_Header_Icons extends LiviElementorWidgetBase {
 
 				}
 
-				if( function_exists( 'is_woocommerce' ) && $settings['show_cart_icon'] == 'yes' ) {
+				if( false && function_exists( 'is_woocommerce' ) && $settings['show_cart_icon'] == 'yes' ) {
 
 					$output .= '<div class="wdt-header-icons-list-item cart-item">';
 

@@ -201,6 +201,46 @@ function myduc_translate_core_strings( $translated_text, $text, $domain ) {
     if ( $text === 'Search' && $domain === 'dtlms' ) {
         return 'Tìm Kiếm';
     }
+    if ( $text === 'Free' && $domain === 'dtlms' ) {
+        return 'Miễn Phí';
+    }
+    if ( $text === 'Curriculum' && $domain === 'dtlms' ) {
+        return 'Giáo Trình';
+    }
     return $translated_text;
 }
+
+// 11. Bỏ Hoàn Toàn Phần Thanh Toán - Chuyển Đổi Thành Chế Độ Danh Mục Khóa Học & Tư Vấn Tuyển Sinh (Lead Gen)
+// Tiêu chuẩn PM 10 năm kinh nghiệm: Giữ nguyên học phí minh bạch, thay thế nút mua bằng Tư Vấn Zalo & Đăng Ký Trực Tiếp
+
+// 11.1. Tắt cơ chế mua hàng trong WooCommerce
+add_filter( 'woocommerce_is_purchasable', '__return_false' );
+
+// 11.2. Hủy các nút "Add to Cart" mặc định của WooCommerce
+remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+
+// 11.3. Chuyển hướng thông minh: Khi người dùng vào /cart/ hoặc /checkout/, tự động chuyển về danh mục /khoa-hoc/
+add_action( 'template_redirect', 'myduc_redirect_cart_checkout_to_courses', 1 );
+function myduc_redirect_cart_checkout_to_courses() {
+    $request_uri = isset( $_SERVER['REQUEST_URI'] ) ? $_SERVER['REQUEST_URI'] : '';
+    if ( preg_match( '#/(cart|checkout|gio-hang|thanh-toan|shop)(/|\?|$)#i', $request_uri ) || ( function_exists( 'is_cart' ) && is_cart() ) || ( function_exists( 'is_checkout' ) && is_checkout() ) ) {
+        wp_safe_redirect( home_url( '/khoa-hoc/' ), 301 );
+        exit;
+    }
+}
+
+// 11.4. Loại bỏ khung giỏ hàng trượt ra (Sidebar Mini-Cart Drawer) và thông báo giỏ hàng ở chân trang
+add_action( 'wp', 'myduc_remove_cart_sidebar_widget', 99 );
+function myduc_remove_cart_sidebar_widget() {
+    remove_action( 'wp_footer', 'livi_shop_woo_sidebar_widget', 10 );
+}
+
+// 11.5. Hủy nạp các script giỏ hàng WooCommerce không cần thiết (Tăng tốc Core Web Vitals)
+add_action( 'wp_enqueue_scripts', 'myduc_disable_cart_scripts', 999 );
+function myduc_disable_cart_scripts() {
+    wp_dequeue_script( 'wc-cart-fragments' );
+    wp_dequeue_script( 'wc-add-to-cart' );
+}
+
 

@@ -527,108 +527,18 @@ function dtlms_course_listing_single_addtocart($purchased_paid_course, $free_cou
 
 	$output = '';
 
-	if(!$purchased_paid_course && !$free_course) {
+	$course_title = get_the_title($course_id);
+	$zalo_url = 'https://zalo.me/0399535981';
+	$contact_url = home_url('/lien-he/?khoa-hoc=' . rawurlencode($course_title));
 
-		if(dtlms_check_item_is_in_cart($course_id)) {
-
-			$output .= '<div class="dtlms-coursedetail-cart-details">';
-				$output .= '<a href="'.wc_get_cart_url().'" target="_self" class="dtlms-coursedetail-cart-link dtlms-button small filled"><i class="fas fa-cart-plus"></i>'.esc_html__('View Cart','dtlms').'</a>';
-			$output .= '</div>';
-
-		} else {
-
-			$allow_purchase = true;
-
-			$course_not_started = false;
-			$course_need_prerequisite = false;
-
-			$course_start_date = get_post_meta ( $course_id, 'course-start-date', true );
-
-			if($course_start_date != '') {
-
-				$course_startdate_timestamp = strtotime($course_start_date);
-				$current_timestamp = current_time( 'timestamp', 1 );
-
-				$allowpurchases_before_course_startdate = get_post_meta($course_id, 'allowpurchases-before-course-startdate', true);
-
-				if(($current_timestamp >= $course_startdate_timestamp) || (($current_timestamp < $course_startdate_timestamp) && $allowpurchases_before_course_startdate =='true')) {
-					$allow_purchase = true;
-					$course_not_started = false;
-				} else {
-					$allow_purchase = false;
-					$course_not_started = true;
-				}
-
-			}
-
-
-			$course_prerequisite = get_post_meta ( $course_id, 'course-prerequisite', true );
-			if($course_prerequisite > 0) {
-
-				$allow_purchase = false;
-				$course_need_prerequisite = true;
-
-				$allowpurchases_before_course_prerequisite = get_post_meta($course_id, 'allowpurchases-before-course-prerequisite', true);
-
-				if('true' ==  dtlms_option('course','course-prerequisite-on-complete')) {
-					if(in_array($course_prerequisite, $completed_courses) || $allowpurchases_before_course_prerequisite == 'true') {
-						$allow_purchase = true;
-						$course_need_prerequisite = false;
-					}
-				} else {
-					if(in_array($course_prerequisite, $submitted_courses) || $allowpurchases_before_course_prerequisite == 'true') {
-						$allow_purchase = true;
-						$course_need_prerequisite = false;
-					}
-				}
-
-			}
-
-			$capacity = get_post_meta ( $course_id, 'capacity', true );
-			if($capacity != '' && $capacity > 0) {
-				$disable_purchases_over_capacity = get_post_meta($course_id, 'disable-purchases-over-capacity', true);
-				$actual_capacity = dtlms_calculate_course_available_seats($course_id, $capacity);
-				if($actual_capacity <= 0 && $disable_purchases_over_capacity == 'true') {
-					$allow_purchase = false;
-				}
-			}
-
-			if($allow_purchase) {
-
-				$output .= '<div class="dtlms-coursedetail-cart-details">';
-					$output .= '<a href="'. apply_filters( 'add_to_cart_url', esc_url( $product->add_to_cart_url() ) ) .'" rel="nofollow" data-product_id="'.esc_attr($product->get_id()).'" class="dtlms-button small filled add_to_cart_button ajax_add_to_cart product_type_'.esc_attr($product->get_type()).'"><i class="fas fa-shopping-cart"></i><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-	 viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
-<path d="M24.1,8.9c-11,0.4-17.9,8-17.9,19.9c0,6.7,2.2,12.9,6.1,17.2c0.2,0.2-0.1,0.5-0.3,0.4C4.9,42,0,34.1,0,25
-	C0,11.5,10.7,0.5,24.1,0C24.6,0,25,0.4,25,0.9v7.1C25,8.5,24.6,8.9,24.1,8.9z M25.9,41.1c11-0.4,17.9-8,17.9-19.9
-	c0-6.7-2.2-12.9-6.1-17.2c-0.2-0.2,0.1-0.5,0.3-0.4C45.1,8,50,15.9,50,25c0,13.5-10.7,24.5-24.1,25c-0.5,0-0.9-0.4-0.9-0.9v-7.1
-	C25,41.5,25.4,41.1,25.9,41.1z"/>
-</svg>
-add to cart</a>';
-				$output .= '</div>';
-
-			} else if ($course_not_started) {
-
-				$output .= '<div class="dtlms-coursedetail-cart-details dtlms-coursedetail-notes">';
-					$output .= '<a href="#" class="dtlms-button small filled dtlms-disabled">'.sprintf(esc_html__('Starts On : %1$s', 'dtlms'), $course_start_date).'</a>';
-				$output .= '</div>';
-
-			} else if ($course_need_prerequisite) {
-
-				$output .= '<div class="dtlms-coursedetail-cart-details dtlms-coursedetail-notes">';
-					$output .= '<a href="#" class="dtlms-button small filled dtlms-disabled">'.sprintf(esc_html__('Require : %1$s', 'dtlms'), get_the_title($course_prerequisite)).'</a>';
-				$output .= '</div>';
-
-			}
-
-		}
-
-	}
-
-	if($free_course && !is_user_logged_in()) {
-		$output .= '<div class="dtlms-coursedetail-cart-details">';
-			$output .= '<a href="#" title="'.esc_html__('Login', 'dtlms').'" class="dtlms-login-link" onclick="return false"><i class="fas fa-unlock-alt"></i>'.esc_html__('Login', 'dtlms').'</a>';
-		$output .= '</div>';
-	}
+	$output .= '<div class="dtlms-coursedetail-cart-details myduc-course-cta-wrapper">';
+		$output .= '<a href="' . esc_url($zalo_url) . '" target="_blank" rel="noopener noreferrer nofollow" class="dtlms-button small filled myduc-course-btn-zalo" title="Tư vấn trực tiếp qua Zalo: 0399.535.981">';
+			$output .= '<i class="fas fa-comment-dots"></i> <span>' . esc_html__('Tư Vấn Zalo', 'dtlms') . '</span>';
+		$output .= '</a>';
+		$output .= '<a href="' . esc_url($contact_url) . '" class="dtlms-button small filled myduc-course-btn-register" title="Đăng ký nhận lộ trình & giữ chỗ ưu đãi">';
+			$output .= '<i class="fas fa-graduation-cap"></i> <span>' . esc_html__('Đăng Ký Tư Vấn', 'dtlms') . '</span>';
+		$output .= '</a>';
+	$output .= '</div>';
 
 	return $output;
 
