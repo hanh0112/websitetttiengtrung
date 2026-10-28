@@ -8,8 +8,7 @@
  Text Domain:  livi-child
 */
 
-/* ===================================================
-   0. HỆ THỐNG TYPOGRAPHY CHUẨN PM 10 NĂM: BE VIETNAM PRO
+/* ============================================   0. HỆ THỐNG TYPOGRAPHY CHUẨN PM 10 NĂM: BE VIETNAM PRO
    Khắc phục triệt để 100% lỗi phông chữ Tiếng Việt (Broken/Ragged Diacritics)
    Hỗ trợ hoàn hảo Tiếng Việt có dấu và Ký tự Tiếng Trung (Hanzi)
    =================================================== */
@@ -102,8 +101,7 @@ h1, h2, h3, h4, h5, h6,
     font-family: var(--myduc-font-primary) !important;
 }
 
-/* ===================================================
-   1. NÚT LOGO HÌNH TRÒN CHUẨN THƯƠNG HIỆU (CIRCULAR LOGO EMBLEM)
+/* ============================================   1. NÚT LOGO HÌNH TRÒN CHUẨN THƯƠNG HIỆU (CIRCULAR LOGO EMBLEM)
    Phong cách Huy Hiệu Hoàng Gia - Biểu tượng chữ "德"
    =================================================== */
 .wdt-logo-container {
@@ -148,8 +146,7 @@ h1, h2, h3, h4, h5, h6,
     background: linear-gradient(135deg, #C02128 0%, #D4AF37 100%) !important;
 }
 
-/* ===================================================
-   2. THANH MENU ĐIỀU HƯỚNG CHUẨN PM 10 NĂM KINH NGHIỆM
+/* ============================================   2. THANH MENU ĐIỀU HƯỚNG CHUẨN PM 10 NĂM KINH NGHIỆM
    Tối ưu Typography, Khoảng cách, Dropdown & Trạng thái Active
    =================================================== */
 .wdt-header-menu .wdt-primary-nav {
@@ -191,8 +188,7 @@ h1, h2, h3, h4, h5, h6,
     box-shadow: 0 2px 8px rgba(192, 33, 40, 0.4) !important;
 }
 
-/* ===================================================
-   3. MENU CON THẢ XUỐNG (DROPDOWN SUB-MENU)
+/* ============================================   3. MENU CON THẢ XUỐNG (DROPDOWN SUB-MENU)
    Hiệu ứng kính mờ, Bo góc mềm, Viền chỉ đỏ sang trọng
    =================================================== */
 .wdt-header-menu ul.sub-menu {
@@ -233,8 +229,7 @@ h1, h2, h3, h4, h5, h6,
     padding-left: 28px !important; /* Hiệu ứng thụt lề mượt mà */
 }
 
-/* ===================================================
-   4. NÚT CTA "TƯ VẤN NGAY" CUỐI MENU (CONVERSION BOOSTER)
+/* ============================================   4. NÚT CTA "TƯ VẤN NGAY" CUỐI MENU (CONVERSION BOOSTER)
    Tiêu chuẩn vàng của PM để tăng tỷ lệ chốt học viên
    =================================================== */
 .myduc-header-cta-btn {
@@ -263,8 +258,7 @@ h1, h2, h3, h4, h5, h6,
     box-shadow: 0 6px 18px rgba(212, 175, 55, 0.45) !important;
 }
 
-/* ===================================================
-   5. NÚT CHUNG & BỘ LIÊN HỆ ĐA KÊNH
+/* ============================================   5. NÚT CHUNG & BỘ LIÊN HỆ ĐA KÊNH
    =================================================== */
 .wdt-button, button.button, input[type="submit"].button, .button.button-primary,
 .elementor-button {
@@ -449,8 +443,7 @@ h1, h2, h3, h4, h5, h6,
     .omni-tooltip { display: none; }
 }
 
-/* ===================================================
-   6. HEADER TITLE BANNER & BREADCRUMB HOÀNG GIA CHUẨN PM
+/* ============================================   6. HEADER TITLE BANNER & BREADCRUMB HOÀNG GIA CHUẨN PM
    Khắc phục dải xám đơn điệu, chuyển sang tông Đỏ Thẫm - Vàng Gold Mỹ Đức
    Loại bỏ hoàn toàn lỗi banner bị nhân đôi (Duplicate Breadcrumb)
    =================================================== */
@@ -552,8 +545,7 @@ h1, h2, h3, h4, h5, h6,
     backdrop-filter: blur(4px) !important;
 }
 
-/* ===================================================
-   9. TỐI ƯU HÓA GIAO DIỆN HERO BANNER (CHUẨN PM 10 NĂM)
+/* ============================================   9. TỐI ƯU HÓA GIAO DIỆN HERO BANNER (CHUẨN PM 10 NĂM)
    - Badge Học viên & Cam kết: Gọn gàng, không che mặt học viên, icon sắc nét
    - Tiêu đề Hero: Gradient Hoàng Gia Crimson-Gold, ngắt dòng chuẩn xác
    - Thanh tìm kiếm: Pill shape hiện đại, nút gradient đỏ đô sang trọng
@@ -695,8 +687,7 @@ h1, h2, h3, h4, h5, h6,
     color: #1A0507 !important;
 }
 
-/* ==========================================================================
-   LOẠI BỎ TOÀN BỘ PHẦN THANH TOÁN & GIỎ HÀNG (CATALOG & LEAD GEN MODE)
+/* ===================================================================   LOẠI BỎ TOÀN BỘ PHẦN THANH TOÁN & GIỎ HÀNG (CATALOG & LEAD GEN MODE)
    Tiêu chuẩn PM 10 năm kinh nghiệm: UI sang trọng, tập trung tỷ lệ chuyển đổi
    ========================================================================== */
 
