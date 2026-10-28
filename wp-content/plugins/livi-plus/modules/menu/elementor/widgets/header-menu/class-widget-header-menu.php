@@ -154,16 +154,27 @@ class Elementor_Header_Menu extends LiviElementorWidgetBase {
 
         extract($settings);
 
+        $menu_object = false;
         if (!empty($nav_id)) {
             $menu_object = wp_get_nav_menu_object($nav_id);
-
-            if (!$menu_object) {
-                echo '<div class="menu-not-found">'.esc_html__('Menu not found or invalid menu ID.', 'lizza-lms-plus').'</div>';
-                return;
+        }
+        if (empty($menu_object)) {
+            $locations = get_nav_menu_locations();
+            if (isset($locations['main-menu'])) {
+                $menu_object = wp_get_nav_menu_object($locations['main-menu']);
+                if ($menu_object) {
+                    $nav_id = $menu_object->term_id;
+                }
             }
-            
-        } else {
-            echo '<div class="menu-not-found">'.esc_html__('Menu not selected.', 'lizza-lms-plus').'</div>';
+        }
+        if (empty($menu_object)) {
+            $menu_object = wp_get_nav_menu_object('Menu Chính - Tiếng Trung Mỹ Đức');
+            if ($menu_object) {
+                $nav_id = $menu_object->term_id;
+            }
+        }
+        if (empty($menu_object)) {
+            echo '<div class="menu-not-found">'.esc_html__('Menu not found or invalid menu ID.', 'lizza-lms-plus').'</div>';
             return;
         }
 

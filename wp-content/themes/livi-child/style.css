@@ -229,6 +229,41 @@ h1, h2, h3, h4, h5, h6,
     padding-left: 28px !important; /* Hiệu ứng thụt lề mượt mà */
 }
 
+/* Chỉ báo cho menu con cấp 2 (2nd-level Flyout Indicator & Positioning) */
+.wdt-header-menu ul.sub-menu li.menu-item-has-children {
+    position: relative !important;
+}
+
+.wdt-header-menu ul.sub-menu li.menu-item-has-children > a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.wdt-header-menu ul.sub-menu li.menu-item-has-children > a::after {
+    content: "›" !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    color: #999999 !important;
+    margin-left: 12px !important;
+    transition: transform 0.2s ease, color 0.2s ease !important;
+}
+
+.wdt-header-menu ul.sub-menu li.menu-item-has-children:hover > a::after {
+    color: var(--myduc-primary) !important;
+    transform: translateX(4px) !important;
+}
+
+/* Menu con cấp 2 (Flyout Level 2) */
+.wdt-header-menu ul.sub-menu li.menu-item-has-children > ul.sub-menu {
+    border-radius: 8px !important;
+    border-top: 3px solid var(--myduc-primary) !important;
+    top: 0 !important;
+    left: 100% !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
 /* ============================================   4. NÚT CTA "TƯ VẤN NGAY" CUỐI MENU (CONVERSION BOOSTER)
    Tiêu chuẩn vàng của PM để tăng tỷ lệ chốt học viên
    =================================================== */
