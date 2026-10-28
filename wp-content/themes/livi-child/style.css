@@ -1187,4 +1187,407 @@ div[class*="list-item-wrapper"].type3 .dtlms-courselist-center-details-section p
     }
 }
 
+/* ===================================================================
+   13. TIÊU CHUẨN PM 10 NĂM: TỐI ƯU VỀ CHÚNG TÔI (NHÂN LỰC & FACEBOOK HUB)
+   =================================================================== */
+
+/* Khung Cung Ứng Nhân Lực */
+.myduc-workforce-container {
+    width: 100% !important;
+    max-width: 1240px !important;
+    margin: 40px auto 0 !important;
+    padding: 0 15px !important;
+    box-sizing: border-box !important;
+}
+
+.myduc-workforce-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 24px !important;
+}
+
+.myduc-wf-card {
+    background: #FFFFFF !important;
+    border: 1.5px solid #EAEAEA !important;
+    border-radius: 14px !important;
+    padding: 26px 22px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04) !important;
+    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+}
+
+.myduc-wf-card:hover {
+    border-color: var(--myduc-primary, #C02128) !important;
+    transform: translateY(-6px) !important;
+    box-shadow: 0 14px 32px rgba(192, 33, 40, 0.12) !important;
+}
+
+.wf-icon-holder {
+    width: 52px !important;
+    height: 52px !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 24px !important;
+    margin-bottom: 16px !important;
+}
+
+.wf-icon-holder.wf-red { background: #FFF0F1 !important; color: #C02128 !important; }
+.wf-icon-holder.wf-green { background: #E8F5E9 !important; color: #2E7D32 !important; }
+.wf-icon-holder.wf-blue { background: #E3F2FD !important; color: #1565C0 !important; }
+.wf-icon-holder.wf-gold { background: #FFF8E1 !important; color: #F57F17 !important; }
+
+.wf-title {
+    font-size: 17.5px !important;
+    font-weight: 800 !important;
+    color: #1F2421 !important;
+    margin: 0 0 10px 0 !important;
+    line-height: 1.4 !important;
+}
+
+.wf-desc {
+    font-size: 13.8px !important;
+    color: #666666 !important;
+    line-height: 1.6 !important;
+    margin: 0 0 16px 0 !important;
+    flex: 1 0 auto !important;
+}
+
+.wf-tags {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+}
+
+.wf-tags li {
+    background: #F4F5F7 !important;
+    color: #555555 !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    padding: 4px 9px !important;
+    border-radius: 6px !important;
+}
+
+/* Banner Đối Tác FDI */
+.myduc-wf-partners-box {
+    margin-top: 32px !important;
+    background: linear-gradient(135deg, #1F2421 0%, #2D3748 100%) !important;
+    border-radius: 14px !important;
+    padding: 30px 32px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 24px !important;
+    color: #FFFFFF !important;
+}
+
+.wf-partner-info {
+    max-width: 650px !important;
+}
+
+.wf-partner-title {
+    font-size: 20px !important;
+    font-weight: 800 !important;
+    color: #FFB800 !important;
+    margin: 0 0 8px 0 !important;
+}
+
+.wf-partner-desc {
+    font-size: 14px !important;
+    color: #E2E8F0 !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+}
+
+.wf-partner-cta {
+    display: flex !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+}
+
+.wf-btn-zalo {
+    background: #C02128 !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    padding: 12px 24px !important;
+    border-radius: 25px !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 15px rgba(192, 33, 40, 0.35) !important;
+    transition: all 0.25s ease !important;
+}
+
+.wf-btn-zalo:hover {
+    background: #A5171E !important;
+    transform: translateY(-2px) !important;
+}
+
+.wf-btn-detail {
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    padding: 12px 22px !important;
+    border-radius: 25px !important;
+    text-decoration: none !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    transition: all 0.25s ease !important;
+}
+
+.wf-btn-detail:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Thẻ Facebook Hub Chính Thức */
+.myduc-fb-hub-card {
+    width: 100% !important;
+    max-width: 1240px !important;
+    margin: 35px auto 10px !important;
+    background: #FFFFFF !important;
+    border: 1.5px solid #EAEAEA !important;
+    border-radius: 16px !important;
+    padding: 32px 30px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+    box-sizing: border-box !important;
+}
+
+.fb-hub-top {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 24px !important;
+    border-bottom: 1px solid #F0F0F0 !important;
+    padding-bottom: 24px !important;
+}
+
+.fb-hub-avatar-col {
+    display: flex !important;
+    align-items: center !important;
+    gap: 20px !important;
+}
+
+.fb-avatar-glow {
+    width: 68px !important;
+    height: 68px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, #1877F2 0%, #0D5CB6 100%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 6px 20px rgba(24, 119, 242, 0.35) !important;
+    flex-shrink: 0 !important;
+}
+
+.fb-avatar-glow svg {
+    width: 36px !important;
+    height: 36px !important;
+}
+
+.fb-name-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    flex-wrap: wrap !important;
+}
+
+.fb-page-name {
+    font-size: 21px !important;
+    font-weight: 800 !important;
+    color: #1F2421 !important;
+    margin: 0 !important;
+}
+
+.fb-badge-verified {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    background: #E7F3FF !important;
+    color: #1877F2 !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    padding: 3px 9px !important;
+    border-radius: 12px !important;
+}
+
+.fb-badge-verified svg {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+.fb-page-handle {
+    margin: 4px 0 0 !important;
+    font-size: 13.5px !important;
+    color: #666666 !important;
+}
+
+.fb-page-meta {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin-top: 6px !important;
+    font-size: 13.5px !important;
+    color: #444444 !important;
+    flex-wrap: wrap !important;
+}
+
+.fb-rating {
+    color: #FFB800 !important;
+    font-weight: 800 !important;
+}
+
+.fb-online-status {
+    color: #2E7D32 !important;
+    font-weight: 700 !important;
+}
+
+.fb-hub-actions {
+    display: flex !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+}
+
+.fb-action-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    padding: 11px 22px !important;
+    border-radius: 25px !important;
+    text-decoration: none !important;
+    transition: all 0.25s ease !important;
+}
+
+.fb-action-btn svg {
+    width: 17px !important;
+    height: 17px !important;
+}
+
+.fb-btn-follow {
+    background: #1877F2 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 14px rgba(24, 119, 242, 0.3) !important;
+}
+
+.fb-btn-follow:hover {
+    background: #0D65D9 !important;
+    transform: translateY(-2px) !important;
+}
+
+.fb-btn-messenger {
+    background: #F0F2F5 !important;
+    color: #1C1E21 !important;
+    border: 1px solid #D8DADF !important;
+}
+
+.fb-btn-messenger:hover {
+    background: #E4E6E9 !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Lưới 4 Chuyên Mục Fanpage */
+.fb-features-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 18px !important;
+    margin-top: 24px !important;
+}
+
+.fb-feature-card {
+    background: #F8F9FA !important;
+    border-radius: 12px !important;
+    padding: 20px 18px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    transition: all 0.25s ease !important;
+    border-top: 4px solid transparent !important;
+}
+
+.fb-feature-card:hover {
+    background: #FFFFFF !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+    transform: translateY(-4px) !important;
+}
+
+.fb-card-blue { border-top-color: #1877F2 !important; }
+.fb-card-red { border-top-color: #C02128 !important; }
+.fb-card-gold { border-top-color: #FFB800 !important; }
+.fb-card-green { border-top-color: #2E7D32 !important; }
+
+.fbc-icon {
+    font-size: 26px !important;
+    margin-bottom: 8px !important;
+}
+
+.fbc-title {
+    font-size: 16px !important;
+    font-weight: 800 !important;
+    color: #1F2421 !important;
+    margin: 0 0 6px 0 !important;
+}
+
+.fbc-desc {
+    font-size: 13px !important;
+    color: #666666 !important;
+    line-height: 1.55 !important;
+    margin: 0 0 12px 0 !important;
+    flex: 1 0 auto !important;
+}
+
+.fbc-link {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: #1877F2 !important;
+    text-decoration: none !important;
+}
+
+.fbc-link:hover {
+    text-decoration: underline !important;
+}
+
+/* Ẩn các icon Instagram cũ trên thư viện ảnh Section 5 và đổi sang style Facebook */
+.elementor-element-a61122d .wdt-image-box-item:hover {
+    box-shadow: 0 10px 25px rgba(24, 119, 242, 0.2) !important;
+}
+
+/* Responsive cho Tablet và Mobile */
+@media (max-width: 991px) {
+    .myduc-workforce-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .fb-features-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .myduc-workforce-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .fb-features-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .fb-hub-top {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+    .fb-hub-actions {
+        width: 100% !important;
+    }
+    .fb-action-btn {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}
+
+
 
