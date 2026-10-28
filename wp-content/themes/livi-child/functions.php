@@ -207,6 +207,9 @@ function myduc_translate_core_strings( $translated_text, $text, $domain ) {
     if ( $text === 'Curriculum' && $domain === 'dtlms' ) {
         return 'Giáo Trình';
     }
+    if ( $text === 'View' ) {
+        return 'Xem Chi Tiết';
+    }
     return $translated_text;
 }
 
@@ -401,6 +404,53 @@ function myduc_render_about_page_enhancements() {
     </script>
     <?php
 }
+
+// 14. TIÊU CHUẨN PM 10 NĂM: ĐIỀU HƯỚNG CHÍNH XÁC CÁC DỊCH VỤ TRANG CHỦ ĐẾN TRANG ĐÍCH TƯƠNG ỨNG
+add_filter( 'term_link', 'myduc_redirect_course_category_term_links', 99, 3 );
+function myduc_redirect_course_category_term_links( $termlink, $term, $taxonomy ) {
+    if ( $taxonomy === 'course_category' ) {
+        $slug = is_object( $term ) ? $term->slug : '';
+        $custom_links = array(
+            'tieng-trung-giao-tiep'        => home_url( '/tieng-trung-giao-tiep/' ),
+            'luyen-thi-hsk-hskk'          => home_url( '/luyen-thi-hsk/' ),
+            'tu-van-hoc-bong-du-hoc'       => home_url( '/du-hoc/' ),
+            'tieng-trung-doanh-nghiep'     => home_url( '/cung-ung-nhan-luc/' ),
+            'cung-ung-nhan-luc-dich-thuat' => home_url( '/cung-ung-nhan-luc/' ),
+            'tieng-trung-tre-em'           => home_url( '/tieng-trung-tre-em/' ),
+            'lop-kem-1-1-gia-su'           => home_url( '/khoa-hoc/' ),
+            'tieng-trung-du-lich-nha-hang' => home_url( '/tieng-trung-giao-tiep/' ),
+        );
+        if ( isset( $custom_links[ $slug ] ) ) {
+            return $custom_links[ $slug ];
+        }
+    }
+    return $termlink;
+}
+
+// 14.1. Chuyển hướng 301 cho các đường dẫn lưu trữ danh mục cũ để bảo vệ SEO
+add_action( 'template_redirect', 'myduc_redirect_course_category_archive_pages', 5 );
+function myduc_redirect_course_category_archive_pages() {
+    if ( is_tax( 'course_category' ) ) {
+        $term = get_queried_object();
+        if ( $term && isset( $term->slug ) ) {
+            $custom_redirects = array(
+                'tieng-trung-giao-tiep'        => home_url( '/tieng-trung-giao-tiep/' ),
+                'luyen-thi-hsk-hskk'          => home_url( '/luyen-thi-hsk/' ),
+                'tu-van-hoc-bong-du-hoc'       => home_url( '/du-hoc/' ),
+                'tieng-trung-doanh-nghiep'     => home_url( '/cung-ung-nhan-luc/' ),
+                'cung-ung-nhan-luc-dich-thuat' => home_url( '/cung-ung-nhan-luc/' ),
+                'tieng-trung-tre-em'           => home_url( '/tieng-trung-tre-em/' ),
+                'lop-kem-1-1-gia-su'           => home_url( '/khoa-hoc/' ),
+                'tieng-trung-du-lich-nha-hang' => home_url( '/tieng-trung-giao-tiep/' ),
+            );
+            if ( isset( $custom_redirects[ $term->slug ] ) ) {
+                wp_safe_redirect( $custom_redirects[ $term->slug ], 301 );
+                exit;
+            }
+        }
+    }
+}
+
 
 
 

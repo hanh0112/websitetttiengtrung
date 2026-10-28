@@ -1589,5 +1589,47 @@ div[class*="list-item-wrapper"].type3 .dtlms-courselist-center-details-section p
     }
 }
 
+/* ===================================================================
+   14. TIÊU CHUẨN PM 10 NĂM: TỐI ƯU Ô DỊCH VỤ TRANG CHỦ (CLICKABLE & HOVER)
+   =================================================================== */
+
+/* Biến toàn bộ ô dịch vụ thành một khối có thể nhấp (Stretched Clickable Card) */
+.dtlms-course-category-item.type3 {
+    position: relative !important;
+    cursor: pointer !important;
+    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    border-radius: 14px !important;
+}
+
+.dtlms-course-category-item.type3:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 12px 30px rgba(192, 33, 40, 0.12) !important;
+}
+
+/* Stretched Link phủ toàn bộ ô dịch vụ */
+.dtlms-course-category-item.type3 h3 a::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 5 !important;
+}
+
+/* Nút Xem Chi Tiết nổi bật */
+.dtlms-course-category-item.type3 .dtlms-instructor-details-btn .wdt-button {
+    pointer-events: none !important; /* Click vào nút sẽ tự động kích hoạt thẻ h3 a::after */
+    font-weight: 700 !important;
+    letter-spacing: 0.3px !important;
+    transition: all 0.3s ease !important;
+}
+
+.dtlms-course-category-item.type3:hover .dtlms-instructor-details-btn .wdt-button {
+    background-color: var(--myduc-primary, #C02128) !important;
+    color: #FFFFFF !important;
+}
+
+
 
 
