@@ -843,4 +843,249 @@ h1, h2, h3, h4, h5, h6,
     display: none !important;
 }
 
+/* ===================================================================
+   12. TIÊU CHUẨN PM 10 NĂM: TỐI ƯU CÂN ĐỐI ĐỒNG ĐỀU Ô KHÓA HỌC (TYPE 3)
+   100% Cân bằng chiều cao, Thước đo pixel-perfect, Sắp xếp thông số khoa học
+   =================================================================== */
+
+/* Khung bọc lưới hiển thị khóa học */
+.dtlms-courses-listing-containers.grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin: 0 -15px !important;
+}
+
+.dtlms-courses-listing-containers.grid .type3.dtlms-courselist-item-wrapper.grid-item {
+    display: flex !important;
+    flex-direction: column !important;
+    margin-bottom: 30px !important;
+    box-sizing: border-box !important;
+}
+
+/* Thẻ khóa học - Đồng nhất chiều cao 100%, Đổ bóng & Bo góc chuẩn EdTech */
+.type3.dtlms-courselist-item-wrapper.grid-item .dtlms-courselist-details {
+    background: #FFFFFF !important;
+    border: 1.5px solid #EBEBEB !important;
+    border-radius: 14px !important;
+    padding: 24px 22px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: 100% !important;
+    min-height: 380px !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04) !important;
+    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+}
+
+.type3.dtlms-courselist-item-wrapper.grid-item:hover .dtlms-courselist-details {
+    border-color: var(--myduc-primary, #C02128) !important;
+    box-shadow: 0 12px 30px rgba(192, 33, 40, 0.12) !important;
+    transform: translateY(-5px) !important;
+}
+
+/* Khối nội dung trên của thẻ */
+.type3.dtlms-courselist-item-wrapper .dtlms-courselist-details-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 0 auto !important;
+    width: 100% !important;
+}
+
+/* Hàng trên cùng: Badge & Sao đánh giá cân xứng tuyệt đối */
+.type3.dtlms-courselist-item-wrapper .dtlms-courselist-details-feautured-inner {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-height: 28px !important;
+    height: 28px !important;
+    margin-bottom: 14px !important;
+    width: 100% !important;
+}
+
+/* Huy hiệu (Badge) sang trọng */
+.type3.dtlms-courselist-item-wrapper .dtlms-course-listing-featured {
+    margin: 0 !important;
+    display: inline-flex !important;
+}
+
+.type3.dtlms-courselist-item-wrapper .dtlms-course-listing-featured .dtlms-course-listing-featured-text {
+    background: #FFF5F5 !important;
+    color: #C02128 !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    padding: 4px 10px !important;
+    border-radius: 4px !important;
+    letter-spacing: 0.3px !important;
+    border: 1px solid #FFCDD2 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    line-height: 1.2 !important;
+}
+
+/* Sao đánh giá (Gold Stars) */
+.type3.dtlms-courselist-item-wrapper .dtlms-courselist-ratings-container {
+    margin: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.type3.dtlms-courselist-item-wrapper .dtlms-courselist-ratings {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 3px !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+}
+
+.type3.dtlms-courselist-item-wrapper .dtlms-courselist-ratings span {
+    font-size: 13.5px !important;
+    color: #FFB800 !important;
+}
+
+/* Tiêu đề khóa học: Khóa cứng độ cao 2 dòng đều 100% cho mọi thẻ */
+.type3.dtlms-courselist-item-wrapper .dtlms-courselist-metadata-holder {
+    width: 100% !important;
+}
+
+.type3.dtlms-courselist-item-wrapper .dtlms-courselist-metadata-holder h5 {
+    font-size: 16.5px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+    min-height: 46px !important;
+    max-height: 46px !important;
+    margin: 0 0 10px 0 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    padding-right: 0 !important;
+}
+
+.type3.dtlms-courselist-item-wrapper .dtlms-courselist-metadata-holder h5 a {
+    color: #1F2421 !important;
+    transition: color 0.25s ease !important;
+    text-decoration: none !important;
+}
+
+.type3.dtlms-courselist-item-wrapper:hover .dtlms-courselist-metadata-holder h5 a {
+    color: var(--myduc-primary, #C02128) !important;
+}
+
+/* Mô tả tóm tắt: Khóa cứng độ cao 2 dòng, thẳng hàng tuyệt đối */
+.type3.dtlms-courselist-item-wrapper .dtlms-courselist-description {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+    color: #666666 !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+    margin: 0 0 16px 0 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    padding-right: 0 !important;
+}
+
+/* Hàng thông số: Học phần | Thời lượng | Học viên (Thẳng thớm, có phân cách tinh tế) */
+div[class*="list-item-wrapper"].type3 .dtlms-courselist-center-details-section {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 10px 0 !important;
+    margin: 0 0 16px 0 !important;
+    border-top: 1px solid #F0F0F0 !important;
+    border-bottom: 1px solid #F0F0F0 !important;
+    width: 100% !important;
+    background: transparent !important;
+}
+
+div[class*="list-item-wrapper"].type3 .dtlms-courselist-center-details-section .dtlms-courselist-center-details-left-section,
+div[class*="list-item-wrapper"].type3 .dtlms-courselist-center-details-section .dtlms-courselist-center-details-right-section {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin: 0 !important;
+}
+
+div[class*="list-item-wrapper"].type3 .dtlms-courselist-center-details-section p {
+    font-size: 12.5px !important;
+    color: #555555 !important;
+    font-weight: 500 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    gap: 5px !important;
+}
+
+div[class*="list-item-wrapper"].type3 .dtlms-courselist-center-details-section p svg,
+div[class*="list-item-wrapper"].type3 .dtlms-courselist-center-details-section p i {
+    width: 14px !important;
+    height: 14px !important;
+    color: #888888 !important;
+    fill: currentColor !important;
+}
+
+/* Phần Chân Thẻ: Giá & Nút Bấm Khóa Cố Định Ở Đáy (Margin-Top Auto) */
+.type3.dtlms-courselist-item-wrapper .dtlms-courselist-bottom-section {
+    margin-top: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    gap: 12px !important;
+    padding-top: 4px !important;
+}
+
+/* Giá học phí nổi bật, chuẩn nhận diện đỏ Mỹ Đức */
+.type3.dtlms-courselist-item-wrapper .dtlms-coursedetail-price-details {
+    display: flex !important;
+    align-items: baseline !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+.type3.dtlms-courselist-item-wrapper .dtlms-coursedetail-price-details .dtlms-cost,
+.type3.dtlms-courselist-item-wrapper .dtlms-coursedetail-price-details .woocommerce-Price-amount {
+    font-size: 21px !important;
+    font-weight: 800 !important;
+    color: var(--myduc-primary, #C02128) !important;
+    line-height: 1 !important;
+    font-family: inherit !important;
+}
+
+.type3.dtlms-courselist-item-wrapper .dtlms-coursedetail-price-details .woocommerce-Price-currencySymbol {
+    font-size: 17px !important;
+    font-weight: 700 !important;
+    margin-left: 3px !important;
+}
+
+/* 2 Nút Hành Động (CTA) Cân Đối 50% - 50% Tuyệt Đối */
+.type3.dtlms-courselist-item-wrapper .myduc-course-cta-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin-top: 0 !important;
+}
+
+.type3.dtlms-courselist-item-wrapper .myduc-course-btn-zalo,
+.type3.dtlms-courselist-item-wrapper .myduc-course-btn-register {
+    flex: 1 1 0 !important;
+    width: 50% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    padding: 10px 10px !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.2px !important;
+    border-radius: 25px !important;
+    white-space: nowrap !important;
+    box-sizing: border-box !important;
+}
+
 
