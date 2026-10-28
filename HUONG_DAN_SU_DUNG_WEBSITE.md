@@ -67,7 +67,7 @@
 * **Cách 2: Truy cập từ Trang Quản Trị (Admin Dashboard)**  
   1. Đăng nhập trang quản trị: `http://localhost:8080/wp-admin/`
   2. Chọn menu **Trang (Pages) -> Tất cả các trang (All Pages)**.
-  3. Tìm trang **Home** (Front Page) và chọn **Chỉnh sửa với Elementor (Edit with Elementor)**.
+  3. Tìm trang **Trang chủ** (Front Page) và chọn **Chỉnh sửa với Elementor (Edit with Elementor)**.
 * **Cách 3: Truy cập qua thanh công cụ Admin Bar**  
   1. Khi đang xem trang ngoài thực tế, chọn **Chỉnh sửa trang (Edit Page)** trên thanh công cụ phía trên.
   2. Tại trang chỉnh sửa cấu hình, nhấn nút **Edit with Elementor**.

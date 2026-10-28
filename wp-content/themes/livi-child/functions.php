@@ -23,9 +23,24 @@ function myduc_enqueue_styles_and_fonts() {
         null
     );
 
+    if ( defined( 'ELEMENTOR_ASSETS_URL' ) && defined( 'ELEMENTOR_VERSION' ) ) {
+        wp_enqueue_style(
+            'myduc-elementor-frontend',
+            ELEMENTOR_ASSETS_URL . 'css/frontend.min.css',
+            array(),
+            ELEMENTOR_VERSION
+        );
+    }
+
     // Tải CSS Theme Cha & Theme Con
     wp_enqueue_style( 'livi-parent', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'livi-child', get_stylesheet_directory_uri() . '/style.css', array('livi-parent', 'myduc-google-font-bevietnam'), '2.2.0' );
+    wp_enqueue_style( 'livi-child', get_stylesheet_directory_uri() . '/style.css', array('livi-parent', 'myduc-google-font-bevietnam'), '2.2.5' );
+    wp_enqueue_style(
+        'myduc-dtlms-icon-font',
+        plugins_url( 'wedesigntech-lms-addon/assets/css/material-design-iconic-font.min.css' ),
+        array( 'livi-child' ),
+        '2.2.0'
+    );
 }
 
 // 3. Khắc phục bộ subset & danh sách font của Theme Livi
@@ -61,6 +76,134 @@ add_filter( 'livi_h6_typo_customizer_update', 'myduc_set_vietnam_typography_fall
 add_filter( 'livi_typo_font_family_css_var', function() {
     return "--wdtFontTypo_Ext: 'Be Vietnam Pro', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;";
 }, 99 );
+
+// Việt hóa một số nhãn giao diện khóa học do theme và tiện ích LMS tạo ra.
+add_filter( 'gettext', 'myduc_translate_frontend_labels', 20, 3 );
+add_filter( 'ngettext', 'myduc_translate_review_count', 20, 5 );
+function myduc_translate_frontend_labels( $translated, $text, $domain ) {
+    if ( is_admin() && ! wp_doing_ajax() ) {
+        return $translated;
+    }
+
+    $labels = array(
+        'Course' => 'Khóa học',
+        'Courses' => 'Khóa học',
+        'Course Category' => 'Danh mục khóa học',
+        'Course Categories' => 'Danh mục khóa học',
+        'Courses Categories' => 'Danh mục khóa học',
+        'Recent Courses' => 'Khóa học mới nhất',
+        'Highest Rated' => 'Được đánh giá cao',
+        'Most Members' => 'Nhiều học viên nhất',
+        'Alphabetical' => 'Theo thứ tự chữ cái',
+        'Featured' => 'Nổi bật',
+        'Grid' => 'Dạng lưới',
+        'List' => 'Dạng danh sách',
+        'Select Order' => 'Chọn cách sắp xếp',
+        'Sort Order' => 'Thứ tự sắp xếp',
+        '%1$s Curriculum' => '%1$s bài học',
+        '%1$s Curriculumn' => '%1$s bài học',
+        '%1$s Stars' => '%1$s sao',
+        '%d Review' => '%d đánh giá',
+        '%d Reviews' => '%d đánh giá',
+        'Curriculum' => 'Bài học',
+        'Students' => 'Học viên',
+        'Student Enrolled' => 'Học viên đã đăng ký',
+        'Reviews' => 'Đánh giá',
+        'Review' => 'Đánh giá',
+        'Free' => 'Miễn phí',
+        'Add To Cart' => 'Thêm vào giỏ hàng',
+        'Add To Cart ' => 'Thêm vào giỏ hàng',
+        'add to cart' => 'Thêm vào giỏ hàng',
+        'View Cart' => 'Xem giỏ hàng',
+        'Instructor' => 'Giảng viên',
+        'Categories' => 'Danh mục',
+        'Course Search' => 'Tìm khóa học',
+        'Show All' => 'Xem tất cả',
+        'Read More' => 'Đọc tiếp',
+        'Explore More' => 'Khám phá thêm',
+        'View' => 'Xem chi tiết',
+        'Community' => 'Cộng đồng',
+        'Referrals' => 'Giới thiệu bạn bè',
+        'Assignments' => 'Bài tập',
+        'Certificates' => 'Chứng chỉ',
+        'Information' => 'Thông tin',
+        'Careers' => 'Tuyển dụng',
+        'My Account' => 'Tài khoản của tôi',
+        'Sitemap' => 'Sơ đồ trang',
+        'Testimonials' => 'Cảm nhận học viên',
+        'Sign In / Register' => 'Đăng nhập / Đăng ký',
+        'Our Newsletter' => 'Bản tin của trung tâm',
+        'Submit' => 'Đăng ký',
+        'Enter Your Email' => 'Nhập địa chỉ email',
+        'Terms & Conditions' => 'Điều khoản sử dụng',
+        'Privacy policy' => 'Chính sách bảo mật',
+        'Privacy Policy' => 'Chính sách bảo mật',
+        'Your Shopping cart' => 'Giỏ hàng',
+        'Shopping cart' => 'Giỏ hàng',
+        'No products in the cart.' => 'Giỏ hàng hiện chưa có sản phẩm.',
+        'Close' => 'Đóng',
+        'Unlock your online education with Livi' => 'Cùng bạn chinh phục tiếng Trung',
+        'Having Quires ?Contact Us Today' => 'Bạn cần hỗ trợ? Liên hệ với trung tâm',
+        'Locate Us' => 'Địa chỉ',
+        'Call Us Today' => 'Gọi cho chúng tôi',
+        'Get In To Inbox' => 'Email liên hệ',
+        'About Us' => 'Về chúng tôi',
+        'Brand Partners' => 'Đối tác',
+        'For Investors' => 'Dành cho đối tác',
+        'Expert Videos' => 'Video học tập',
+        'Request A Demo' => 'Yêu cầu tư vấn',
+        'Customer Reviews' => 'Cảm nhận học viên',
+        'Press Release' => 'Tin tức',
+        'Our Next Level E-Learning' => 'Học tiếng Trung theo lộ trình',
+        'View our course offerings' => 'Xem các khóa học',
+        'Explore Top Courses Categories' => 'Khám phá các chương trình học',
+    );
+
+    return isset( $labels[ $text ] ) ? $labels[ $text ] : $translated;
+}
+
+function myduc_translate_review_count( $translated, $single, $plural, $number, $domain ) {
+    if ( 'dtlms' === $domain && ( '%d Review' === $single || '%d Reviews' === $plural ) ) {
+        return '%d đánh giá';
+    }
+
+    return $translated;
+}
+
+function myduc_start_vnd_price_output_buffer() {
+    if ( ( is_admin() && ! wp_doing_ajax() ) || is_feed() || ! function_exists( 'get_woocommerce_currency' ) ) {
+        return;
+    }
+
+    if ( 'VND' === get_woocommerce_currency() ) {
+        ob_start( 'myduc_format_vnd_price_markup' );
+    }
+}
+add_action( 'wp_loaded', 'myduc_start_vnd_price_output_buffer', 0 );
+
+function myduc_format_vnd_price_markup( $html ) {
+    $currency_symbol = html_entity_decode( get_woocommerce_currency_symbol( 'VND' ), ENT_QUOTES, 'UTF-8' );
+
+    $formatted_html = preg_replace_callback(
+        '~(<span class="woocommerce-Price-amount amount">)(<span class="woocommerce-Price-currencySymbol">)([^<]+)(</span>)(-?\d+(?:\.\d+)?)(</span>)~u',
+        function( $matches ) use ( $currency_symbol ) {
+            if ( html_entity_decode( $matches[3], ENT_QUOTES, 'UTF-8' ) !== $currency_symbol ) {
+                return $matches[0];
+            }
+
+            $amount = number_format( (float) $matches[5], 0, ',', '.' );
+
+            return $matches[1] . $amount . '&nbsp;' . $matches[2] . $matches[3] . $matches[4] . $matches[6];
+        },
+        $html
+    );
+
+    return str_replace(
+        array( ' Students ', 'Add To Cart', 'Add to Cart', 'add to cart' ),
+        array( ' Học viên ', 'Thêm vào giỏ hàng', 'Thêm vào giỏ hàng', 'Thêm vào giỏ hàng' ),
+        $formatted_html
+    );
+}
 
 // 4. Thêm Nút Kêu Gọi Hành Động (CTA Button) vào cuối Thanh Menu
 add_filter( 'wp_nav_menu_items', 'myduc_append_header_cta_button', 10, 2 );
@@ -161,7 +304,7 @@ add_filter('rank_math/json_ld', function( $data, $jsonld ) {
             'name'          => 'Trung Tâm Tiếng Trung Mỹ Đức',
             'alternateName' => 'Tiếng Trung Cô Mỹ Đức Huế',
             'url'           => home_url('/'),
-            'logo'          => home_url('/wp-content/uploads/logo-my-duc.jpg'),
+            'logo'          => home_url('/wp-content/uploads/2026/10/logo-my-duc.png'),
             'telephone'     => '+84399535981',
             'email'         => 'tiengtrungcomyduc@gmail.com',
             'sameAs'        => [
@@ -203,4 +346,3 @@ function myduc_translate_core_strings( $translated_text, $text, $domain ) {
     }
     return $translated_text;
 }
-

@@ -4,7 +4,7 @@
  Description:  Livi Child Theme - Tối ưu chuẩn PM 10 năm cho Trung Tâm Tiếng Trung Mỹ Đức
  Author:       the WeDesignTech team
  Template:     livi
- Version:      2.2.0
+ Version:      2.2.4
  Text Domain:  livi-child
 */
 
@@ -77,6 +77,17 @@ h1, h2, h3, h4, h5, h6,
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;
     -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Keep the LMS and theme icon fonts intact while applying the Vietnamese text font. */
+.zmdi,
+.zmdi::before {
+    font-family: "Material-Design-Iconic-Font" !important;
+}
+
+.dtlms-courselist-post_date,
+.dtlms-courselist-duration {
+    display: none !important;
 }
 
 /* Chuẩn hóa tỷ lệ dòng & độ thoáng chữ tiếng Việt (chống dính dấu mũ, dấu hỏi/ngã) */
@@ -440,10 +451,21 @@ h1, h2, h3, h4, h5, h6,
         min-width: 52px !important;
     }
     .myduc-header-cta-btn { display: none !important; }
+    .elementor-17 .elementor-element-0e789bd { order: -1; }
+    .elementor-17 .elementor-element-a3ce193 .wdt-heading-title {
+        font-size: clamp(1.75rem, 5vw, 2.5rem) !important;
+    }
 }
 
-@media (max-width: 768px) {
-    .myduc-omnichannel-widget { bottom: 16px; right: 14px; gap: 10px; }
+@media (max-width: 1024px) {
+    .myduc-omnichannel-widget {
+        bottom: 12px;
+        right: 12px;
+        flex-direction: row;
+        gap: 8px;
+    }
+    .myduc-omnichannel-widget .omni-messenger,
+    .myduc-omnichannel-widget .omni-social-bar { display: none; }
     .omni-btn { width: 46px; height: 46px; }
     .omni-btn svg { width: 22px; height: 22px; }
     .omni-tooltip { display: none; }
@@ -655,6 +677,7 @@ h1, h2, h3, h4, h5, h6,
     border-radius: 30px 0 0 30px !important;
     border: 2px solid #E2E8F0 !important;
     padding-left: 22px !important;
+    padding-right: 124px !important;
     font-size: 14.5px !important;
     color: #1A0507 !important;
     background: #FFFFFF !important;
@@ -673,7 +696,8 @@ h1, h2, h3, h4, h5, h6,
     color: #FFFFFF !important;
     font-weight: 700 !important;
     font-size: 15px !important;
-    padding: 0 28px !important;
+    min-width: 112px !important;
+    padding: 0 14px !important;
     border: none !important;
     cursor: pointer !important;
     box-shadow: 0 4px 15px rgba(165, 23, 30, 0.3) !important;
@@ -695,3 +719,29 @@ h1, h2, h3, h4, h5, h6,
     color: #1A0507 !important;
 }
 
+.myduc-faq-list {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.myduc-faq-list details {
+    margin: 0 0 14px;
+    padding: 18px 22px;
+    border: 1px solid #eadfe0;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.myduc-faq-list summary {
+    color: var(--myduc-dark);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.myduc-faq-list details[open] summary {
+    color: var(--myduc-primary);
+}
+
+.myduc-faq-list details p {
+    margin: 12px 0 0;
+}

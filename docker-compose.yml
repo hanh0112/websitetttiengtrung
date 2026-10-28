@@ -26,6 +26,17 @@ services:
       WORDPRESS_DB_NAME: wordpress
     volumes:
       - wp_data:/var/www/html
+      - ./wp-content:/var/www/html/wp-content
+      - type: volume
+        source: wp_content_runtime
+        target: /var/www/html/wp-content/plugins/elementor
+        volume:
+          subpath: plugins/elementor
+      - type: volume
+        source: wp_content_runtime
+        target: /var/www/html/wp-content/plugins/woocommerce
+        volume:
+          subpath: plugins/woocommerce
       - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
       - ./.htaccess:/var/www/html/.htaccess
 
@@ -45,3 +56,6 @@ services:
 volumes:
   db_data:
   wp_data:
+  wp_content_runtime:
+    external: true
+    name: website_tt_tieng_trung_wp_content_runtime
