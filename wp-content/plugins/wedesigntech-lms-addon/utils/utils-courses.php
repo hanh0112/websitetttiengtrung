@@ -1880,7 +1880,7 @@ function dtlms_generate_courses_listing() {
 
 		if($apply_isotope == 'true'):
 			$output .= '<div class="dtlms-courses-listing-items">';
-				$output .= '<div class="grid-sizer '.$column_class.'"></div>';
+				// $output .= '<div class="grid-sizer '.$column_class.'"></div>';
 		endif;
 
 			$i = 1;

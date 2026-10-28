@@ -870,13 +870,27 @@ h1, h2, h3, h4, h5, h6,
     position: relative !important;
 }
 
-/* Ẩn sizer của Isotope để không chiếm 1 ô trong CSS Grid */
-.dtlms-courses-listing-items .grid-sizer {
+/* Ẩn triệt để grid-sizer của Isotope khỏi luồng hiển thị (tránh chiếm ô đầu tiên của CSS Grid) */
+.dtlms-courses-listing-items .grid-sizer,
+.dtlms-courses-listing-items div.grid-sizer,
+.dtlms-courses-listing-items .grid-sizer.dtlms-column,
+.dtlms-courses-listing-items .grid-sizer.dtlms-one-third,
+.grid-sizer {
     display: none !important;
+    position: absolute !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    z-index: -9999 !important;
 }
 
-/* Vô hiệu hóa toạ độ absolute của Masonry - Ép các thẻ thành Grid Item chuẩn */
-.dtlms-courses-listing-items .dtlms-column.dtlms-one-third {
+/* Vô hiệu hóa toạ độ absolute của Masonry - Ép các thẻ thành Grid Item chuẩn (loại trừ grid-sizer) */
+.dtlms-courses-listing-items .dtlms-courselist-item-wrapper,
+.dtlms-courses-listing-items .dtlms-column.dtlms-one-third:not(.grid-sizer) {
     position: relative !important;
     top: auto !important;
     left: auto !important;
