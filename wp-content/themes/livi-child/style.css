@@ -1630,6 +1630,350 @@ div[class*="list-item-wrapper"].type3 .dtlms-courselist-center-details-section p
     color: #FFFFFF !important;
 }
 
+/* ===================================================================
+   15. TIÊU CHUẨN PM 10 NĂM: QUY CHUẨN PHỐI MÀU 60 - 30 - 10 & GẦN GŨI VỚI NGƯỜI VIỆT NAM
+   - 60% Nền chủ đạo: #FDFBF7 (Kem ấm / Giấy Tuyên) & #FFFFFF (Trắng tinh khiết)
+   - 30% Nhận diện thương hiệu: #C02128 (Đỏ son Cung đình / Đỏ Mỹ Đức)
+   - 10% Điểm nhấn chuyển đổi CTA: #D4AF37 / #FFB800 / #E5A823 (Vàng Hoàng gia / Gold)
+   - Bổ trợ: Chữ đen than #1F2421, xám chì #555555, viền ấm #EDE8E1
+   - Trải nghiệm Việt: Mobile Sticky Action Bar, Trust Ribbon, Thẻ mềm mại, Đánh giá 5 sao
+   =================================================================== */
+
+/* 15.1. NỀN CHỦ ĐẠO 60% (CLEAN BASE & ZEBRA SECTIONING) */
+body, #page, .site-content, .wdt-site-wrapper {
+    background-color: var(--myduc-light-bg, #FDFBF7) !important;
+    color: var(--myduc-dark, #1F2421) !important;
+}
+
+/* Các section nền trắng tinh tế xen kẽ */
+.elementor-element-c064eda, /* Dịch vụ trọng điểm */
+.elementor-element-d6f48f6, /* Luyện thi HSK & Học bổng */
+.elementor-element-c9452cb, /* Khóa học & Lộ trình */
+.elementor-element-74462ff  /* Cẩm nang & Tin tức */ {
+    background-color: #FFFFFF !important;
+}
+
+/* Các section nền giấy tuyên ấm áp */
+.elementor-element-998c83d, /* Về chúng tôi */
+.elementor-element-0bf3a0d, /* Tại sao chọn cô Mỹ Đức */
+.elementor-element-85e7aab  /* Đội ngũ giảng viên */ {
+    background-color: #FDFBF7 !important;
+}
+
+/* 15.2. NHẬN DIỆN THƯƠNG HIỆU 30% (PRIMARY RED #C02128) */
+
+/* Gạch phân cách tiêu đề mang dấu ấn phương Đông sang trọng */
+.wdt-heading-separator.with-line .wdt-separator-line {
+    background: linear-gradient(90deg, transparent 0%, #C02128 50%, transparent 100%) !important;
+    height: 3px !important;
+    border-radius: 2px !important;
+}
+
+.wdt-heading-separator-wrapper {
+    margin-bottom: 12px !important;
+}
+
+/* Chữ tiêu đề sắc nét, đậm chất học thuật */
+.wdt-heading-title {
+    color: #1F2421 !important;
+}
+
+/* Tiêu đề Hover và Subtitle */
+.wdt-heading-subtitle {
+    color: #C02128 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+    font-size: 13.5px !important;
+}
+
+/* Menu chính: Màu chữ và hiệu ứng active đỏ son */
+.wdt-header-menu ul.wdt-primary-nav > li > a {
+    color: #1F2421 !important;
+    font-weight: 600 !important;
+    transition: color 0.25s ease !important;
+}
+
+.wdt-header-menu ul.wdt-primary-nav > li:hover > a,
+.wdt-header-menu ul.wdt-primary-nav > li.current-menu-item > a,
+.wdt-header-menu ul.wdt-primary-nav > li.current-menu-ancestor > a {
+    color: #C02128 !important;
+}
+
+/* 15.3. ĐIỂM NHẤN CHUYỂN ĐỔI 10% (ACCENT CTA GOLD #D4AF37 & #FFB800) */
+
+/* Nút CTA Header "Tư Vấn Ngay" chuẩn tỷ lệ 10% kích thích click */
+.myduc-header-cta-btn {
+    background: linear-gradient(135deg, #D4AF37 0%, #FFB800 100%) !important;
+    color: #1F2421 !important;
+    border: 1.5px solid #C02128 !important;
+    box-shadow: 0 4px 14px rgba(212, 175, 55, 0.45) !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.3px !important;
+}
+
+.myduc-header-cta-btn:hover {
+    background: linear-gradient(135deg, #C02128 0%, #9E1319 100%) !important;
+    color: #FFFFFF !important;
+    border-color: #D4AF37 !important;
+    box-shadow: 0 6px 18px rgba(192, 33, 40, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Nút tìm kiếm khóa học trên Hero */
+.wdt-custom-main-slider-course-search input.dtlms-courses-listing-searchform-submit {
+    background: linear-gradient(135deg, #C02128 0%, #9E1319 100%) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 14px rgba(192, 33, 40, 0.35) !important;
+}
+
+.wdt-custom-main-slider-course-search input.dtlms-courses-listing-searchform-submit:hover {
+    background: linear-gradient(135deg, #D4AF37 0%, #FFB800 100%) !important;
+    color: #1F2421 !important;
+    box-shadow: 0 6px 18px rgba(212, 175, 55, 0.45) !important;
+}
+
+/* Nút submit form Liên Hệ / Tư Vấn / Newsletter */
+.wpcf7-submit,
+.wdt-form-style-a input[type="submit"],
+.elementor-widget-wdt-mailchimp button[type="submit"] {
+    background: linear-gradient(135deg, #D4AF37 0%, #FFB800 100%) !important;
+    color: #1F2421 !important;
+    border: 1.5px solid #C02128 !important;
+    font-weight: 800 !important;
+    border-radius: 25px !important;
+    padding: 12px 28px !important;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4) !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+}
+
+.wpcf7-submit:hover,
+.wdt-form-style-a input[type="submit"]:hover,
+.elementor-widget-wdt-mailchimp button[type="submit"]:hover {
+    background: linear-gradient(135deg, #C02128 0%, #9E1319 100%) !important;
+    color: #FFFFFF !important;
+    border-color: #D4AF37 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(192, 33, 40, 0.35) !important;
+}
+
+/* 15.4. DẢI 4 CAM KẾT VÀNG CỦA CÔ MỸ ĐỨC (TRUST GUARANTEE RIBBON) */
+.myduc-trust-ribbon-container {
+    width: 100% !important;
+    max-width: 1240px !important;
+    margin: 25px auto 45px !important;
+    padding: 0 15px !important;
+    position: relative !important;
+    z-index: 10 !important;
+    box-sizing: border-box !important;
+}
+
+.myduc-trust-ribbon-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px !important;
+    background: #FFFFFF !important;
+    border: 1.5px solid #EDE8E1 !important;
+    border-radius: 16px !important;
+    padding: 24px 26px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+.trust-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    padding: 6px 10px !important;
+    border-right: 1px solid #F0ECE4 !important;
+}
+
+.trust-item:last-child {
+    border-right: none !important;
+}
+
+.trust-icon {
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    border-radius: 12px !important;
+    background: #FFF2F2 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 24px !important;
+    border: 1px solid #FFCDD2 !important;
+}
+
+.trust-content h5 {
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    color: #1F2421 !important;
+    margin: 0 0 4px 0 !important;
+    line-height: 1.3 !important;
+}
+
+.trust-content p {
+    font-size: 12.5px !important;
+    color: #666666 !important;
+    margin: 0 !important;
+    line-height: 1.45 !important;
+}
+
+/* 15.5. NÂNG CẤP KHỐI GIẢNG VIÊN CÔ MỸ ĐỨC (GẦN GŨI, UY TÍN) */
+.elementor-element-85e7aab .wdt-team-member {
+    background: #FFFFFF !important;
+    border: 1.5px solid #EDE8E1 !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04) !important;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.elementor-element-85e7aab .wdt-team-member:hover {
+    border-color: #C02128 !important;
+    transform: translateY(-6px) !important;
+    box-shadow: 0 14px 30px rgba(192, 33, 40, 0.12) !important;
+}
+
+/* 15.6. NÂNG CẤP FOOTER SANG TRỌNG & ĐẦY ĐỦ THÔNG TIN HUẾ */
+.footer-56,
+.footer-56 .elementor-section-boxed {
+    background-color: #1A1D20 !important;
+}
+
+.footer-56 h2.wdt-heading-title-wrapper span.wdt-heading-title {
+    color: #FFFFFF !important;
+}
+
+.footer-56 .wdt-accordion-toggle-title {
+    color: #FFB800 !important;
+    font-weight: 800 !important;
+    font-size: 17px !important;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.3) !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 15px !important;
+}
+
+.footer-56 .elementor-icon-list-item a {
+    color: #CBD5E1 !important;
+    font-size: 14px !important;
+    transition: color 0.2s ease, transform 0.2s ease !important;
+}
+
+.footer-56 .elementor-icon-list-item a:hover {
+    color: #FFB800 !important;
+    transform: translateX(4px) !important;
+}
+
+.footer-56 .elementor-widget-text-editor p {
+    color: #E2E8F0 !important;
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+}
+
+.footer-56 .elementor-widget-text-editor strong {
+    color: #FFB800 !important;
+}
+
+/* 15.7. THANH TIỆN ÍCH LIÊN HỆ NHANH TRÊN DI ĐỘNG (MOBILE STICKY ACTION BAR) */
+.myduc-mobile-sticky-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #FFFFFF;
+    border-top: 1.5px solid #EDE8E1;
+    box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.1);
+    z-index: 999998;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.m-bar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    text-decoration: none !important;
+    flex: 1;
+    padding: 4px 6px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.m-bar-item:active {
+    transform: scale(0.92);
+}
+
+.m-bar-icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.m-bar-label {
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.m-bar-phone .m-bar-label { color: #C02128; }
+.m-bar-zalo .m-bar-label { color: #0068FF; }
+.m-bar-fb .m-bar-label { color: #0084FF; }
+.m-bar-map .m-bar-label { color: #D4AF37; }
+
+/* Responsive hiển thị Mobile Sticky Bar và Trust Ribbon */
+@media (max-width: 768px) {
+    .myduc-mobile-sticky-bar {
+        display: flex !important;
+    }
+    
+    body {
+        padding-bottom: 60px !important; /* Tránh thanh sticky che footer */
+    }
+
+    .myduc-omnichannel-widget {
+        bottom: 74px !important; /* Nâng floating widget lên trên thanh mobile bar */
+    }
+
+    .myduc-trust-ribbon-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 14px !important;
+        padding: 16px 14px !important;
+    }
+
+    .trust-item {
+        border-right: none !important;
+        border-bottom: 1px solid #F0ECE4 !important;
+        padding-bottom: 10px !important;
+    }
+
+    .trust-item:nth-child(3),
+    .trust-item:nth-child(4) {
+        border-bottom: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .myduc-trust-ribbon-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .trust-item {
+        border-bottom: 1px solid #F0ECE4 !important;
+    }
+
+    .trust-item:last-child {
+        border-bottom: none !important;
+    }
+}
+
+
 
 
 

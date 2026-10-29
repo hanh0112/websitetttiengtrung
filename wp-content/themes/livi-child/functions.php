@@ -451,6 +451,87 @@ function myduc_redirect_course_category_archive_pages() {
     }
 }
 
+// 15. TIÊU CHUẨN PM 10 NĂM: QUY CHUẨN PHỐI MÀU 60 - 30 - 10 & TRẢI NGHIỆM GẦN GŨI VỚI NGƯỜI VIỆT NAM
+add_action( 'wp_footer', 'myduc_vietnamese_ux_enhancements', 99 );
+function myduc_vietnamese_ux_enhancements() {
+    ?>
+    <!-- 15.1. THANH TIỆN ÍCH LIÊN HỆ NHANH TRÊN DI ĐỘNG (MOBILE STICKY ACTION BAR) -->
+    <div class="myduc-mobile-sticky-bar" id="myducMobileStickyBar">
+        <a href="tel:0399535981" class="m-bar-item m-bar-phone" title="Gọi Hotline Cô Mỹ Đức">
+            <span class="m-bar-icon">📞</span>
+            <span class="m-bar-label">Gọi Hotline</span>
+        </a>
+        <a href="https://zalo.me/0399535981" target="_blank" rel="noopener noreferrer nofollow" class="m-bar-item m-bar-zalo" title="Chat Zalo Tư Vấn 1-1">
+            <span class="m-bar-icon">💬</span>
+            <span class="m-bar-label">Nhắn Zalo</span>
+        </a>
+        <a href="https://m.me/tiengtrungcomyduc" target="_blank" rel="noopener noreferrer nofollow" class="m-bar-item m-bar-fb" title="Chat Messenger Fanpage">
+            <span class="m-bar-icon">⚡</span>
+            <span class="m-bar-label">Messenger</span>
+        </a>
+        <a href="https://maps.google.com/?q=84+Nguy%E1%BB%85n+Tr%C3%A3i+Hu%E1%BA%BF" target="_blank" rel="noopener noreferrer" class="m-bar-item m-bar-map" title="Xem Địa Chỉ 2 Cơ Sở Huế">
+            <span class="m-bar-icon">📍</span>
+            <span class="m-bar-label">Cơ Sở Huế</span>
+        </a>
+    </div>
+
+    <!-- 15.2. JAVASCRIPT VIỆT HÓA & NÂNG CẤP TƯƠNG TÁC THÂN THIỆN -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. Tự động chuyển đổi các nút submit tiếng Anh còn sót sang tiếng Việt thân thiện
+        var mcSubmit = document.querySelector('.wdt-mailchimp-subscription-button-holder button span');
+        if (mcSubmit && mcSubmit.textContent.trim().toLowerCase() === 'submit') {
+            mcSubmit.textContent = 'Đăng Ký Nhận Tin';
+        }
+        var mcInput = document.querySelector('input[name="wdt_mc_emailid"]');
+        if (mcInput) {
+            mcInput.setAttribute('placeholder', 'Nhập email nhận cẩm nang HSK...');
+        }
+
+        // 2. Chèn Dải 4 Cam Kết Vàng của Cô Mỹ Đức vào Trang Chủ
+        var homeIntroSec = document.querySelector('.elementor-element-c064eda');
+        if (homeIntroSec && !document.getElementById('myducTrustRibbon')) {
+            var trustHtml = `
+            <div id="myducTrustRibbon" class="myduc-trust-ribbon-container">
+                <div class="myduc-trust-ribbon-grid">
+                    <div class="trust-item">
+                        <div class="trust-icon">📜</div>
+                        <div class="trust-content">
+                            <h5>Cam Kết Đầu Ra HSK</h5>
+                            <p>Đậu HSK điểm cao hoặc học lại hoàn toàn miễn phí 100%</p>
+                        </div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-icon">👩‍🏫</div>
+                        <div class="trust-content">
+                            <h5>Cô Mỹ Đức &amp; Thạc Sĩ</h5>
+                            <p>Giảng viên ĐH Sư Phạm Hoa Trung trực tiếp giảng dạy</p>
+                        </div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-icon">👥</div>
+                        <div class="trust-content">
+                            <h5>Sĩ Số Vàng 8 - 12 Bạn</h5>
+                            <p>Kèm sát từng học viên, rèn khẩu ngữ phản xạ thực chiến</p>
+                        </div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-icon">🎓</div>
+                        <div class="trust-content">
+                            <h5>Săn Học Bổng 0 Đồng</h5>
+                            <p>Tư vấn apply học bổng CIS, CSC, Du học Đài Loan uy tín</p>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+            homeIntroSec.insertAdjacentHTML('beforebegin', trustHtml);
+        }
+    });
+    </script>
+    <?php
+}
+
+
 
 
 
