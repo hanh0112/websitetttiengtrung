@@ -1758,7 +1758,7 @@ body, #page, .site-content, .wdt-site-wrapper {
     box-shadow: 0 6px 20px rgba(192, 33, 40, 0.35) !important;
 }
 
-/* 15.4. DẢI 4 CAM KẾT VÀNG CỦA CÔ MỸ ĐỨC (TRUST GUARANTEE RIBBON) */
+/* 15.4. Dải thông tin về chương trình và tư vấn */
 .myduc-trust-ribbon-container {
     width: 100% !important;
     max-width: 1240px !important;
@@ -1836,44 +1836,122 @@ body, #page, .site-content, .wdt-site-wrapper {
     box-shadow: 0 14px 30px rgba(192, 33, 40, 0.12) !important;
 }
 
-/* 15.6. NÂNG CẤP FOOTER SANG TRỌNG & ĐẦY ĐỦ THÔNG TIN HUẾ */
+/* 15.6. Chân trang gọn, dễ đọc và đồng nhất trên thiết bị di động */
 .footer-56,
+.footer-56 .elementor-section,
 .footer-56 .elementor-section-boxed {
-    background-color: #1A1D20 !important;
+    background-color: #FFF4F5 !important;
+}
+
+.footer-56 .elementor-element-917371e {
+    display: none !important;
+}
+
+.footer-56 .elementor-element-c710ba7 {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+}
+
+.footer-56 .elementor-element-c710ba7 > .elementor-container {
+    align-items: flex-start !important;
+}
+
+.footer-56 .elementor-element-c51749e {
+    flex: 0 0 40% !important;
+    width: 40% !important;
+    max-width: 40% !important;
+}
+
+.footer-56 .elementor-element-11de727,
+.footer-56 .elementor-element-2c3aa3e {
+    flex: 0 0 30% !important;
+    width: 30% !important;
+    max-width: 30% !important;
+}
+
+.footer-56 .elementor-element-c51749e,
+.footer-56 .elementor-element-11de727,
+.footer-56 .elementor-element-2c3aa3e {
+    box-sizing: border-box !important;
+    padding: 12px 20px !important;
 }
 
 .footer-56 h2.wdt-heading-title-wrapper span.wdt-heading-title {
-    color: #FFFFFF !important;
+    color: #252525 !important;
 }
 
 .footer-56 .wdt-accordion-toggle-title {
-    color: #FFB800 !important;
+    color: #252525 !important;
     font-weight: 800 !important;
     font-size: 17px !important;
-    border-bottom: 2px solid rgba(212, 175, 55, 0.3) !important;
-    padding-bottom: 8px !important;
-    margin-bottom: 15px !important;
+    border-bottom: 2px solid rgba(192, 33, 40, 0.2) !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 12px !important;
 }
 
 .footer-56 .elementor-icon-list-item a {
-    color: #CBD5E1 !important;
+    color: #4B4546 !important;
     font-size: 14px !important;
     transition: color 0.2s ease, transform 0.2s ease !important;
 }
 
 .footer-56 .elementor-icon-list-item a:hover {
-    color: #FFB800 !important;
+    color: #C02128 !important;
     transform: translateX(4px) !important;
 }
 
 .footer-56 .elementor-widget-text-editor p {
-    color: #E2E8F0 !important;
+    color: #4B4546 !important;
     font-size: 14px !important;
     line-height: 1.7 !important;
 }
 
 .footer-56 .elementor-widget-text-editor strong {
-    color: #FFB800 !important;
+    color: #9E1319 !important;
+}
+
+.footer-56 .elementor-element-b6a1798 {
+    border-top: 1px solid #EADDE0 !important;
+}
+
+@media (max-width: 767px) {
+    .footer-56 .elementor-element-c710ba7 {
+        padding-top: 24px !important;
+        padding-bottom: 24px !important;
+    }
+
+    .footer-56 .elementor-element-c51749e,
+    .footer-56 .elementor-element-11de727,
+    .footer-56 .elementor-element-2c3aa3e {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 10px 20px !important;
+    }
+
+    .footer-56 .wdt-accordion-toggle-title-holder {
+        background: transparent !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        padding: 0 0 10px !important;
+    }
+
+    .footer-56 .wdt-accordion-toggle-title {
+        color: #252525 !important;
+        background: transparent !important;
+    }
+
+    .footer-56 .wdt-accordion-toggle-icon {
+        display: none !important;
+    }
+
+    .footer-56 .wdt-accordion-toggle-description {
+        display: block !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        padding: 0 !important;
+    }
 }
 
 /* 15.7. THANH TIỆN ÍCH LIÊN HỆ NHANH TRÊN DI ĐỘNG (MOBILE STICKY ACTION BAR) */
@@ -1934,13 +2012,40 @@ body, #page, .site-content, .wdt-site-wrapper {
     }
     
     body {
-        padding-bottom: 60px !important; /* Tránh thanh sticky che footer */
+        padding-bottom: calc(76px + env(safe-area-inset-bottom)) !important;
+    }
+
+    .myduc-mobile-sticky-bar {
+        padding-bottom: calc(8px + env(safe-area-inset-bottom));
     }
 
     .myduc-omnichannel-widget {
-        bottom: 74px !important; /* Nâng floating widget lên trên thanh mobile bar */
+        display: none !important;
     }
 
+    @media (max-width: 1024px) {
+        .footer-56 .elementor-column {
+            flex: 0 0 50% !important;
+            width: 50% !important;
+            max-width: 50% !important;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .footer-56 .elementor-column {
+            flex: 0 0 100% !important;
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        .tpl-blog-holder.apply-isotope {
+            box-sizing: border-box !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+    }
     .myduc-trust-ribbon-grid {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 14px !important;
@@ -1977,3 +2082,779 @@ body, #page, .site-content, .wdt-site-wrapper {
 
 
 
+
+
+/* ============================================   16. FORM ĐĂNG KÝ TƯ VẤN - CHUẨN PM 10 NĂM
+   Thiết kế lại hoàn toàn form Contact Form 7 (.wdt-form-style-a)
+   Cân đối bố cục, chuyên nghiệp, dễ thao tác trên mọi thiết bị
+   =================================================== */
+
+/* Wrapper toàn bộ form */
+.wdt-form-style-a,
+.wpcf7-form {
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Input text, email, tel chung */
+.wdt-form-style-a input[type="text"],
+.wdt-form-style-a input[type="email"],
+.wdt-form-style-a input[type="tel"],
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"],
+.wpcf7-form input[type="tel"],
+.wpcf7-text,
+.wpcf7-tel,
+.wpcf7-email {
+    width: 100% !important;
+    height: 50px !important;
+    padding: 0 16px !important;
+    font-size: 15px !important;
+    font-family: var(--myduc-font-primary) !important;
+    color: #1F2421 !important;
+    background: #FFFFFF !important;
+    border: 1.5px solid #DDE3E8 !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease !important;
+    outline: none !important;
+    -webkit-appearance: none !important;
+}
+
+.wdt-form-style-a input[type="text"]:focus,
+.wdt-form-style-a input[type="email"]:focus,
+.wdt-form-style-a input[type="tel"]:focus,
+.wpcf7-form input[type="text"]:focus,
+.wpcf7-form input[type="email"]:focus,
+.wpcf7-form input[type="tel"]:focus {
+    border-color: #C02128 !important;
+    box-shadow: 0 0 0 3px rgba(192, 33, 40, 0.1) !important;
+}
+
+/* Select khóa học */
+.wdt-form-style-a select,
+.wpcf7-form select {
+    width: 100% !important;
+    height: 50px !important;
+    padding: 0 40px 0 16px !important;
+    font-size: 15px !important;
+    font-family: var(--myduc-font-primary) !important;
+    color: #444 !important;
+    background: #FFFFFF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23C02128' d='M6 8L0 0h12z'/%3E%3C/svg%3E") no-repeat right 14px center !important;
+    border: 1.5px solid #DDE3E8 !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.wdt-form-style-a select:focus,
+.wpcf7-form select:focus {
+    border-color: #C02128 !important;
+    box-shadow: 0 0 0 3px rgba(192, 33, 40, 0.1) !important;
+    outline: none !important;
+}
+
+/* Label cơ sở học */
+.wdt-form-style-a .label label,
+.wpcf7-form .label label {
+    font-size: 14.5px !important;
+    font-weight: 600 !important;
+    color: #444 !important;
+    display: block !important;
+    margin-bottom: 10px !important;
+}
+
+/* Checkbox cơ sở */
+.wdt-form-style-a .checkbox .wpcf7-checkbox,
+.wpcf7-form .wpcf7-checkbox {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px 16px !important;
+}
+
+.wdt-form-style-a .checkbox .wpcf7-checkbox .wpcf7-list-item,
+.wpcf7-form .wpcf7-checkbox .wpcf7-list-item {
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.wdt-form-style-a .checkbox .wpcf7-checkbox input[type="checkbox"],
+.wpcf7-form .wpcf7-checkbox input[type="checkbox"] {
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    margin-right: 7px !important;
+    accent-color: #C02128 !important;
+    cursor: pointer !important;
+    border-radius: 4px !important;
+}
+
+.wdt-form-style-a .checkbox .wpcf7-checkbox .wpcf7-list-item-label,
+.wpcf7-form .wpcf7-checkbox .wpcf7-list-item-label {
+    font-size: 14px !important;
+    color: #444 !important;
+    cursor: pointer !important;
+    line-height: 1.4 !important;
+}
+
+/* Nút Submit form */
+.wdt-form-style-a .submit-btn,
+.wpcf7-form p:last-child,
+.wdt-form-style-a [data-class="wpcf7cf_group"] + div {
+    text-align: center !important;
+    margin-top: 6px !important;
+}
+
+.wdt-form-style-a input[type="submit"],
+.wpcf7-submit {
+    width: 100% !important;
+    max-width: 420px !important;
+    display: inline-block !important;
+    background: linear-gradient(135deg, #C02128 0%, #9E1319 100%) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-radius: 30px !important;
+    padding: 14px 36px !important;
+    font-size: 16px !important;
+    font-weight: 800 !important;
+    font-family: var(--myduc-font-primary) !important;
+    letter-spacing: 0.3px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 6px 20px rgba(192, 33, 40, 0.35) !important;
+    text-transform: none !important;
+    -webkit-appearance: none !important;
+}
+
+.wdt-form-style-a input[type="submit"]:hover,
+.wpcf7-submit:hover {
+    background: linear-gradient(135deg, #D4AF37 0%, #FFB800 100%) !important;
+    color: #1F2421 !important;
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.5) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Thông báo kết quả gửi form */
+.wpcf7-response-output {
+    margin: 15px 0 0 0 !important;
+    padding: 12px 18px !important;
+    border-radius: 8px !important;
+    font-size: 14.5px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    border: none !important;
+}
+
+.wpcf7-response-output.wpcf7-mail-sent-ok {
+    background: #E8F5E9 !important;
+    color: #2E7D32 !important;
+    border-left: 4px solid #4CAF50 !important;
+}
+
+.wpcf7-response-output.wpcf7-validation-errors,
+.wpcf7-response-output.wpcf7-mail-sent-ng {
+    background: #FFF3F3 !important;
+    color: #C02128 !important;
+    border-left: 4px solid #C02128 !important;
+}
+
+/* Validation highlight trường bắt buộc */
+.wpcf7-not-valid {
+    border-color: #C02128 !important;
+    background: #FFF8F8 !important;
+}
+
+.wpcf7-not-valid-tip {
+    color: #C02128 !important;
+    font-size: 12.5px !important;
+    margin-top: 4px !important;
+    display: block !important;
+}
+
+/* Layout 2 cột phone + email trên desktop */
+.wdt-form-style-a .mail {
+    display: flex !important;
+    gap: 12px !important;
+    margin-bottom: 15px !important;
+}
+
+.wdt-form-style-a .mail > div {
+    flex: 1 !important;
+    min-width: 0 !important;
+}
+
+/* ============================================   17. TỐI ƯU MOBILE RESPONSIVE TOÀN DIỆN
+   Chuẩn PM 10 năm: Trải nghiệm mượt mà trên mọi thiết bị từ 320px đến 768px
+   =================================================== */
+
+/* --- Màn hình tablet nhỏ và dưới (≤768px) --- */
+@media (max-width: 768px) {
+
+    /* Form: 2 cột phone+email về 1 cột */
+    .wdt-form-style-a .mail {
+        flex-direction: column !important;
+        gap: 0 !important;
+    }
+
+    .wdt-form-style-a .mail > div {
+        margin-bottom: 15px !important;
+    }
+
+    /* Checkbox cơ sở: hiển thị dọc */
+    .wdt-form-style-a .checkbox .wpcf7-checkbox,
+    .wpcf7-form .wpcf7-checkbox {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+
+    /* Section hero heading */
+    .elementor-heading-title {
+        font-size: clamp(22px, 5.5vw, 42px) !important;
+        line-height: 1.3 !important;
+    }
+
+    /* Tiêu đề section chuẩn mobile */
+    h2.elementor-heading-title,
+    .wdt-heading-title-wrapper .wdt-heading-title {
+        font-size: clamp(20px, 5vw, 36px) !important;
+    }
+
+    h3.elementor-heading-title {
+        font-size: clamp(18px, 4.5vw, 28px) !important;
+    }
+
+    /* Section padding tối ưu mobile */
+    .elementor-section.elementor-section-boxed > .elementor-container {
+        max-width: 100% !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    /* FAQ, Accordion tối ưu mobile */
+    .wdt-accordion-toggle {
+        padding: 14px 16px !important;
+    }
+
+    .wdt-accordion-toggle-title {
+        font-size: 15px !important;
+    }
+
+    /* Course card mobile */
+    .wdt-course-item {
+        margin-bottom: 20px !important;
+    }
+
+    /* Gallery / Image box mobile */
+    .elementor-image-box-wrapper {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+
+    /* Nút CTA chính mobile */
+    .elementor-button {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    /* Map iframe tối ưu */
+    .elementor-google-map iframe,
+    iframe[src*="maps.google"] {
+        min-height: 250px !important;
+        width: 100% !important;
+    }
+
+    /* Đội ngũ giáo viên mobile */
+    .wdt-team-member {
+        margin-bottom: 24px !important;
+    }
+
+    /* Khoảng cách section mobile */
+    .elementor-section {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+    }
+}
+
+/* --- Màn hình điện thoại nhỏ (≤480px) --- */
+@media (max-width: 480px) {
+
+    /* Form input tăng chiều cao cho dễ bấm */
+    .wdt-form-style-a input[type="text"],
+    .wdt-form-style-a input[type="email"],
+    .wdt-form-style-a input[type="tel"],
+    .wdt-form-style-a select {
+        height: 52px !important;
+        font-size: 16px !important; /* Tránh zoom trên iOS */
+    }
+
+    /* Submit button full width */
+    .wdt-form-style-a input[type="submit"],
+    .wpcf7-submit {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: 15px !important;
+    }
+
+    /* Tiêu đề hero */
+    .elementor-heading-title {
+        font-size: clamp(20px, 7vw, 28px) !important;
+    }
+
+    /* Navigation mobile: đảm bảo hamburger dễ nhấn */
+    .wdt-mobile-nav-trigger {
+        width: 46px !important;
+        height: 46px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    /* Khoảng cách section nhỏ hơn */
+    .elementor-section {
+        padding-top: 28px !important;
+        padding-bottom: 28px !important;
+    }
+
+    /* Nút nổi (floating) tránh chồng lên thanh sticky */
+    .myduc-omnichannel-widget {
+        right: 10px !important;
+        bottom: 78px !important;
+    }
+}
+
+/* --- Đảm bảo ảnh không tràn trên mọi thiết bị --- */
+img {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+body:not(.elementor-editor-active) .elementor-invisible {
+    visibility: visible !important;
+}
+
+/* --- Fix overflow hidden trên mobile --- */
+@media (max-width: 768px) {
+    .elementor-section.elementor-section-full_width {
+        overflow: hidden !important;
+    }
+}
+
+
+/* ============================================   18. KHỐI ĐỘI NGŨ GIÁO VIÊN & HÌNH ẢNH THỰC TẾ (MỤC 2 & 3 YÊU CẦU)
+   Chuẩn PM 10 năm kinh nghiệm: Thiết kế chuyên nghiệp, sang trọng, sẵn sàng nhận dữ liệu
+   =================================================== */
+
+/* Container chung */
+.myduc-custom-section {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.myduc-section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.myduc-section-badge {
+    display: inline-block;
+    background: #FFF0F1;
+    color: var(--myduc-primary);
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(192, 33, 40, 0.2);
+}
+
+.myduc-section-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--myduc-dark);
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+}
+
+.myduc-section-subtitle {
+    color: #666;
+    font-size: 16px;
+    max-width: 780px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* --- 18.1. ĐỘI NGŨ GIÁO VIÊN --- */
+.myduc-teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.myduc-teacher-card {
+    background: #FFFFFF;
+    border: 1.5px solid #EDE8E1;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    transition: all 0.35s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.myduc-teacher-card:hover {
+    border-color: var(--myduc-primary);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 36px rgba(192, 33, 40, 0.12);
+}
+
+.teacher-photo-wrapper {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    background: linear-gradient(135deg, #FFF5F5 0%, #FFFDF7 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.teacher-photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.myduc-teacher-card:hover .teacher-photo-wrapper img {
+    transform: scale(1.05);
+}
+
+.teacher-avatar-placeholder {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #FFF;
+    border: 3px solid var(--myduc-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.teacher-hsk-badge {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: var(--myduc-primary);
+    color: #FFF;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(192, 33, 40, 0.35);
+}
+
+.teacher-info {
+    padding: 20px 18px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.teacher-name {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--myduc-dark);
+    margin: 0 0 6px 0;
+}
+
+.teacher-role {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--myduc-primary);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.teacher-bio {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    flex: 1;
+}
+
+.teacher-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+    padding: 0;
+    list-style: none;
+}
+
+.teacher-tags li {
+    background: #F8F9FA;
+    color: #495057;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid #E9ECEF;
+}
+
+.teacher-cta-btn {
+    display: block;
+    text-align: center;
+    background: #FFF;
+    color: var(--myduc-primary);
+    border: 1.5px solid var(--myduc-primary);
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 12.5px;
+    text-decoration: none !important;
+    transition: all 0.25s ease;
+}
+
+.teacher-cta-btn:hover {
+    background: var(--myduc-primary);
+    color: #FFF !important;
+}
+
+/* --- 18.2. HÌNH ẢNH THỰC TẾ & CƠ SỞ VẬT CHẤT --- */
+.myduc-gallery-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.gallery-tab-btn {
+    background: #FFF;
+    border: 1.5px solid #DDD;
+    color: #555;
+    padding: 9px 20px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 13.5px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: var(--myduc-font-primary);
+}
+
+.gallery-tab-btn:hover,
+.gallery-tab-btn.active {
+    background: var(--myduc-primary);
+    border-color: var(--myduc-primary);
+    color: #FFF;
+    box-shadow: 0 4px 12px rgba(192, 33, 40, 0.25);
+}
+
+.myduc-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.gallery-item-card {
+    background: #FFF;
+    border: 1px solid #EDE8E1;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+}
+
+.gallery-item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-photo-box {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background: #F5F5F5;
+    overflow: hidden;
+}
+
+.gallery-photo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.gallery-item-card:hover .gallery-photo-box img {
+    transform: scale(1.08);
+}
+
+.gallery-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(31, 36, 33, 0.85);
+    color: #FFF;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+}
+
+.gallery-info {
+    padding: 14px 16px;
+}
+
+.gallery-info h5 {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--myduc-dark);
+    margin: 0 0 4px 0;
+    line-height: 1.35;
+}
+
+.gallery-info p {
+    font-size: 12px;
+    color: #777;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Responsive cho Đội ngũ giáo viên & Thư viện ảnh */
+@media (max-width: 1024px) {
+    .myduc-teachers-grid,
+    .myduc-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .myduc-teachers-grid,
+    .myduc-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .myduc-section-title {
+        font-size: 24px;
+    }
+
+    .myduc-gallery-tabs {
+        gap: 8px;
+    }
+
+    .gallery-tab-btn {
+        padding: 7px 14px;
+        font-size: 12.5px;
+    }
+}
+
+@media (max-width: 767px) {
+    .header-53 .elementor-element-0ad76ff {
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
+    }
+
+    .header-53 .elementor-element-97594c5 {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .elementor-element-dee3568 .elementor-element-2bcb91a,
+    .elementor-element-dee3568 .elementor-element-4b88eaa {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .elementor-element-dee3568 .elementor-element-2bcb91a > .elementor-widget-wrap {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 4px 12px !important;
+        padding: 8px 16px !important;
+        box-sizing: border-box !important;
+    }
+
+    .elementor-element-dee3568 .elementor-element-c725738 {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 0 8px !important;
+        text-align: center !important;
+    }
+
+    .elementor-element-dee3568 .elementor-element-e9f9af0,
+    .elementor-element-dee3568 .elementor-element-32fd48c {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+    }
+
+    .elementor-element-dee3568 .elementor-element-e9f9af0 .wdt-image-box-holder,
+    .elementor-element-dee3568 .elementor-element-32fd48c .wdt-image-box-holder {
+        height: 64px !important;
+        overflow: hidden !important;
+    }
+
+    .elementor-element-dee3568 .elementor-element-e9f9af0 img,
+    .elementor-element-dee3568 .elementor-element-32fd48c img {
+        width: auto !important;
+        height: 56px !important;
+        max-width: 88px !important;
+        max-height: 56px !important;
+        object-fit: contain !important;
+    }
+
+    .elementor-element-dee3568 .elementor-element-4b88eaa > .elementor-widget-wrap {
+        width: 100% !important;
+        max-width: 700px !important;
+        margin-right: auto !important;
+        margin-left: auto !important;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .elementor-element-dee3568 .elementor-element-4b88eaa > .elementor-widget-wrap {
+        padding-top: 16px !important;
+        padding-bottom: 16px !important;
+    }
+
+    .elementor-element-dee3568 .elementor-element-6057da1,
+    .elementor-element-dee3568 .elementor-element-6057da1 .elementor-shortcode,
+    .elementor-element-dee3568 .elementor-element-6057da1 .wpcf7 {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .elementor-element-dee3568 .wpcf7-form input[type="text"],
+    .elementor-element-dee3568 .wpcf7-form input[type="email"],
+    .elementor-element-dee3568 .wpcf7-form input[type="tel"],
+    .elementor-element-dee3568 .wpcf7-form select {
+        padding-right: 12px !important;
+        padding-left: 12px !important;
+        font-size: 14px !important;
+    }
+
+    .elementor-element-dee3568 .wpcf7-form select {
+        text-overflow: ellipsis !important;
+    }
+}

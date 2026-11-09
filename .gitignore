@@ -4,6 +4,7 @@
 *.temp
 *.py
 *.json
+.env
 .DS_Store
 Thumbs.db
 
@@ -42,3 +43,4 @@ livi-child-style.css
 extracted/
 /wp-content/uploads/wc-logs/
 /wp-content/uploads/elementor/
+/wp-content/uploads/wpcf7_uploads/

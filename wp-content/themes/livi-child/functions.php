@@ -25,7 +25,24 @@ function myduc_enqueue_styles_and_fonts() {
 
     // Tải CSS Theme Cha & Theme Con
     wp_enqueue_style( 'livi-parent', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'livi-child', get_stylesheet_directory_uri() . '/style.css', array('livi-parent', 'myduc-google-font-bevietnam'), '2.2.0' );
+    wp_enqueue_style(
+        'livi-child',
+        get_stylesheet_directory_uri() . '/style.css',
+        array('livi-parent', 'myduc-google-font-bevietnam'),
+        filemtime( get_stylesheet_directory() . '/style.css' )
+    );
+}
+
+add_filter( 'style_loader_src', 'myduc_version_child_stylesheet', 10, 2 );
+function myduc_version_child_stylesheet( $src, $handle ) {
+    $stylesheet_url = get_stylesheet_directory_uri() . '/style.css';
+    $stylesheet_path = get_stylesheet_directory() . '/style.css';
+
+    if ( strpos( $src, $stylesheet_url ) === 0 && file_exists( $stylesheet_path ) ) {
+        return add_query_arg( 'ver', filemtime( $stylesheet_path ), $src );
+    }
+
+    return $src;
 }
 
 // 3. Khắc phục bộ subset & danh sách font của Theme Livi
@@ -77,15 +94,15 @@ function myduc_render_omnichannel_floating_widget() {
     ?>
     <!-- Bộ Nút Liên Hệ Đa Kênh & Mạng Xã Hội (Mục 5 Hợp đồng) -->
     <div class="myduc-omnichannel-widget" id="myducOmniWidget">
-        <!-- Nút Gọi Hotline (Hiệu ứng sóng xung kích) -->
-        <a href="tel:0399535981" class="omni-btn omni-phone" title="Gọi Hotline: 0399.535.981" rel="nofollow">
+        <!-- Nút gọi điện thoại -->
+        <a href="tel:0399535981" class="omni-btn omni-phone" title="Gọi điện thoại: 0399.535.981" rel="nofollow">
             <span class="omni-pulse"></span>
             <svg viewBox="0 0 24 24"><path fill="#fff" d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-            <span class="omni-tooltip">Hotline: 0399.535.981</span>
+            <span class="omni-tooltip">Điện thoại: 0399.535.981</span>
         </a>
 
         <!-- Nút Chat Zalo -->
-        <a href="https://zalo.me/0399535981" target="_blank" class="omni-btn omni-zalo" title="Chat Zalo cùng Cô Mỹ Đức" rel="noopener noreferrer nofollow">
+        <a href="https://zalo.me/0399535981" target="_blank" class="omni-btn omni-zalo" title="Nhắn tin qua Zalo" rel="noopener noreferrer nofollow">
             <span class="omni-badge">Zalo</span>
             <svg viewBox="0 0 48 48">
                 <path fill="#fff" d="M24 4C12.95 4 4 12.95 4 24c0 4.09 1.25 7.89 3.39 11.04L4.5 43.5l8.84-2.82C16.32 42.71 19.99 44 24 44c11.05 0 20-8.95 20-20S35.05 4 24 4zm10.78 26.38c-.45 1.26-2.23 2.31-3.66 2.61-.98.2-2.26.36-6.55-1.42-5.49-2.28-9.03-7.85-9.3-8.21-.27-.37-2.23-2.97-2.23-5.66s1.41-4.01 1.91-4.56c.5-.55 1.09-.69 1.45-.69.36 0 .73.01 1.04.02.33.02.78-.13 1.22.93.45 1.09 1.54 3.77 1.68 4.05.14.27.23.59.05.95-.18.37-.27.59-.54.91-.27.32-.57.71-.81.96-.27.27-.55.57-.24 1.1.32.55 1.41 2.33 3.03 3.77 2.08 1.85 3.84 2.42 4.39 2.69.55.27.86.23 1.18-.14.32-.37 1.36-1.59 1.73-2.14.36-.55.73-.45 1.22-.27.5.18 3.18 1.5 3.73 1.77.55.27.91.41 1.05.64.13.23.13 1.32-.32 2.58z"/>
@@ -93,16 +110,16 @@ function myduc_render_omnichannel_floating_widget() {
             <span class="omni-tooltip">Tư vấn qua Zalo</span>
         </a>
 
-        <!-- Nút Facebook Messenger -->
-        <a href="https://m.me/tiengtrungcomyduc" target="_blank" class="omni-btn omni-messenger" title="Nhắn tin Facebook Messenger" rel="noopener noreferrer nofollow">
+        <!-- Nút nhắn tin Facebook -->
+        <a href="https://m.me/tiengtrungcomyduc" target="_blank" class="omni-btn omni-messenger" title="Nhắn tin Facebook" rel="noopener noreferrer nofollow">
             <svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2C6.36 2 2 6.13 2 11.23c0 2.91 1.41 5.51 3.63 7.22V22l3.41-1.87c.94.26 1.94.4 2.96.4 5.64 0 10-4.13 10-9.23S17.64 2 12 2zm1.06 12.44l-2.73-2.91-5.33 2.91 5.86-6.22 2.8 2.91 5.26-2.91-5.86 6.22z"/></svg>
-            <span class="omni-tooltip">Facebook Messenger</span>
+            <span class="omni-tooltip">Nhắn tin Facebook</span>
         </a>
 
         <!-- Menu Mạng Xã Hội Mở Rộng -->
         <div class="omni-social-bar">
-            <!-- Facebook Fanpage -->
-            <a href="https://www.facebook.com/tiengtrungcomyduc/" target="_blank" class="omni-sub-btn omni-fb" title="Fanpage Facebook (21.000+ Followers)" rel="noopener noreferrer">
+            <!-- Trang Facebook -->
+            <a href="https://www.facebook.com/tiengtrungcomyduc/" target="_blank" class="omni-sub-btn omni-fb" title="Trang Facebook (21.000+ người theo dõi)" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24"><path fill="#fff" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95C18.05 21.45 22 17.19 22 12z"/></svg>
             </a>
             <!-- TikTok -->
@@ -114,7 +131,7 @@ function myduc_render_omnichannel_floating_widget() {
                 <svg viewBox="0 0 24 24"><path fill="#fff" d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
             <!-- Email -->
-            <a href="mailto:tiengtrungcomyduc@gmail.com" class="omni-sub-btn omni-email" title="Gửi Email cho Mỹ Đức">
+            <a href="mailto:tiengtrungcomyduc@gmail.com" class="omni-sub-btn omni-email" title="Gửi thư điện tử cho Mỹ Đức">
                 <svg viewBox="0 0 24 24"><path fill="#fff" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             </a>
         </div>
@@ -142,7 +159,7 @@ function myduc_add_social_share_buttons($content) {
                 </a>
                 <button type="button" class="share-btn share-copy" onclick="navigator.clipboard.writeText(window.location.href); alert(\'Đã sao chép liên kết vào bộ nhớ tạm!\');" title="Sao chép liên kết">
                     <svg viewBox="0 0 24 24"><path fill="#fff" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-                    <span>Sao chép Link</span>
+                    <span>Sao chép liên kết</span>
                 </button>
             </div>
         </div>';
@@ -198,6 +215,22 @@ function myduc_translate_core_strings( $translated_text, $text, $domain ) {
     if ( $text === 'What do you need to Learn ?' ) {
         return 'Bạn đang tìm khóa học tiếng Trung nào?';
     }
+    if ( $domain === 'dtlms' ) {
+        $course_translations = array(
+            'Grid'            => 'Lưới',
+            'List'            => 'Danh sách',
+            'Display Type'    => 'Kiểu hiển thị',
+            'Select Order'    => 'Sắp xếp theo',
+            'Sort Order:'     => 'Thứ tự sắp xếp:',
+            'Recent Courses'  => 'Khóa học mới nhất',
+            'Highest Rated'   => 'Đánh giá cao nhất',
+            'Most Members'    => 'Nhiều học viên nhất',
+            'Alphabetical'    => 'Tên khóa học A–Z',
+        );
+        if ( isset( $course_translations[ $text ] ) ) {
+            return $course_translations[ $text ];
+        }
+    }
     if ( $text === 'Search' && $domain === 'dtlms' ) {
         return 'Tìm Kiếm';
     }
@@ -246,8 +279,7 @@ function myduc_disable_cart_scripts() {
     wp_dequeue_script( 'wc-add-to-cart' );
 }
 
-// 12. Tối Ưu Trang "Về Chúng Tôi": Tích Hợp Khối Cung Ứng Nhân Lực FDI & Trung Tâm Fanpage Facebook
-add_action( 'wp_footer', 'myduc_render_about_page_enhancements', 99 );
+// 12. Tối ưu trang "Về Chúng Tôi": tích hợp khối cung ứng nhân lực FDI và trang Facebook
 function myduc_render_about_page_enhancements() {
     if ( ! ( is_page( 've-chung-toi' ) || is_page( 23064 ) ) ) {
         return;
@@ -264,7 +296,7 @@ function myduc_render_about_page_enhancements() {
                     <div class="myduc-wf-card">
                         <div class="wf-icon-holder wf-red">🗣️</div>
                         <h4 class="wf-title">Biên - Phiên Dịch Viên Chuyên Nghiệp</h4>
-                        <p class="wf-desc">Cung ứng phiên dịch viên cabin, hội nghị, đàm phán thương mại quốc tế và dịch thuật hồ sơ kỹ thuật, hợp đồng song ngữ Trung - Việt chuẩn xác 100%.</p>
+                        <p class="wf-desc">Cung ứng phiên dịch viên hội nghị, đàm phán thương mại quốc tế và dịch thuật hồ sơ kỹ thuật, hợp đồng song ngữ Trung - Việt.</p>
                         <ul class="wf-tags">
                             <li>Dịch đàm phán</li>
                             <li>Dịch hội thảo</li>
@@ -273,28 +305,28 @@ function myduc_render_about_page_enhancements() {
                     </div>
                     <div class="myduc-wf-card">
                         <div class="wf-icon-holder wf-green">👔</div>
-                        <h4 class="wf-title">Trợ Lý &amp; Quản Lý Dự Án Doanh Nghiệp FDI</h4>
+                        <h4 class="wf-title">Trợ Lý &amp; Quản Lý Dự Án Doanh Nghiệp Có Vốn Đầu Tư Nước Ngoài</h4>
                         <p class="wf-desc">Đào tạo nhân sự tiếng Trung thông thạo văn hóa quản trị doanh nghiệp Đài Loan - Trung Quốc, đáp ứng ngay các vị trí Trợ lý Giám đốc, Kế toán, Thu mua và Quản lý xưởng.</p>
                         <ul class="wf-tags">
                             <li>Trợ lý TGĐ</li>
-                            <li>Thu mua - Supply Chain</li>
+                            <li>Thu mua - Chuỗi cung ứng</li>
                             <li>Kế toán</li>
                         </ul>
                     </div>
                     <div class="myduc-wf-card">
                         <div class="wf-icon-holder wf-blue">🏨</div>
-                        <h4 class="wf-title">Nhân Sự Du Lịch, Khách Sạn &amp; Resort</h4>
-                        <p class="wf-desc">Cung cấp hướng dẫn viên du lịch quốc tế, lễ tân, nhân viên điều hành tour tiếng Trung cho các quần thể resort, khách sạn 5 sao cao cấp tại Cố Đô Huế và Đà Nẵng.</p>
+                        <h4 class="wf-title">Nhân Sự Du Lịch, Khách Sạn &amp; Khu Nghỉ Dưỡng</h4>
+                        <p class="wf-desc">Cung cấp hướng dẫn viên du lịch quốc tế, lễ tân và nhân viên điều hành chương trình du lịch bằng tiếng Trung cho các khu nghỉ dưỡng, khách sạn tại Huế và Đà Nẵng.</p>
                         <ul class="wf-tags">
                             <li>Hướng dẫn viên</li>
                             <li>Lễ tân 5 sao</li>
-                            <li>Điều hành Tour</li>
+                            <li>Điều hành du lịch</li>
                         </ul>
                     </div>
                     <div class="myduc-wf-card">
                         <div class="wf-icon-holder wf-gold">🎯</div>
-                        <h4 class="wf-title">Đào Tạo Tiếng Trung In-House Theo Yêu Cầu</h4>
-                        <p class="wf-desc">Thiết kế lộ trình đào tạo riêng biệt cho cán bộ nhân viên công ty: Tiếng Trung ngành Dệt may, Cơ khí, Logistics, Bất động sản với cam kết giao tiếp thành thạo sau 3 tháng.</p>
+                        <h4 class="wf-title">Đào Tạo Tiếng Trung Tại Doanh Nghiệp Theo Yêu Cầu</h4>
+                        <p class="wf-desc">Thiết kế lộ trình đào tạo riêng cho cán bộ, nhân viên các ngành dệt may, cơ khí, hậu cần và bất động sản; thời lượng được tư vấn theo nhu cầu thực tế.</p>
                         <ul class="wf-tags">
                             <li>Dạy tại doanh nghiệp</li>
                             <li>May đo giáo trình</li>
@@ -307,7 +339,7 @@ function myduc_render_about_page_enhancements() {
                 <div class="myduc-wf-partners-box">
                     <div class="wf-partner-info">
                         <h4 class="wf-partner-title">Đối Tác Tuyển Dụng &amp; Tiếp Nhận Nhân Lực Tiêu Biểu</h4>
-                        <p class="wf-partner-desc">Hơn 50+ doanh nghiệp FDI tại <strong>KCN Phú Bài, KCN Phong Điền, Khu Kinh Tế Chân Mây</strong> và hệ thống Resort cao cấp tại Huế thường xuyên ưu tiên tuyển dụng học viên tốt nghiệp tại Tiếng Trung Mỹ Đức.</p>
+                        <p class="wf-partner-desc">Hơn 50 doanh nghiệp có vốn đầu tư nước ngoài (FDI) tại <strong>KCN Phú Bài, KCN Phong Điền, Khu Kinh Tế Chân Mây</strong> cùng các khu nghỉ dưỡng tại Huế có nhu cầu tuyển dụng nhân sự biết tiếng Trung.</p>
                     </div>
                     <div class="wf-partner-cta">
                         <a href="https://zalo.me/0399535981" target="_blank" rel="noopener" class="wf-btn-zalo">
@@ -322,7 +354,7 @@ function myduc_render_about_page_enhancements() {
             secWorkforce.insertAdjacentHTML('beforeend', workforceHtml);
         }
 
-        // 2. Tích hợp Khối Fanpage Facebook Chính Thức & Cộng Đồng vào Section 5
+        // 2. Tích hợp Trang Facebook chính thức và cộng đồng vào phần 5
         var secFacebook = document.querySelector('.elementor-element-a61122d .elementor-container') || document.querySelector('.elementor-element-a61122d');
         if (secFacebook && !document.getElementById('myducFacebookHub')) {
             var fbHtml = `
@@ -353,28 +385,28 @@ function myduc_render_about_page_enhancements() {
                     <div class="fb-hub-actions">
                         <a href="https://www.facebook.com/tiengtrungcomyduc/" target="_blank" rel="noopener noreferrer" class="fb-action-btn fb-btn-follow">
                             <svg viewBox="0 0 24 24"><path fill="#fff" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                            <span>Theo Dõi Fanpage</span>
+                            <span>Theo Dõi Trang Facebook</span>
                         </a>
                         <a href="https://m.me/tiengtrungcomyduc" target="_blank" rel="noopener noreferrer" class="fb-action-btn fb-btn-messenger">
                             <svg viewBox="0 0 24 24"><path fill="#1877F2" d="M12 2C6.477 2 2 6.145 2 11.258c0 2.908 1.45 5.503 3.717 7.151V22l3.435-1.885c.91.253 1.873.389 2.848.389 5.523 0 10-4.145 10-9.246C22 6.145 17.523 2 12 2zm1.066 12.443l-2.718-2.898-5.304 2.898 5.835-6.195 2.784 2.898 5.238-2.898-5.835 6.195z"/></svg>
-                            <span>Nhắn Tin Messenger</span>
+                            <span>Nhắn Tin Qua Facebook</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- 4 Chuyên Mục Hoạt Động Nổi Bật Trên Fanpage -->
+                <!-- 4 chuyên mục hoạt động nổi bật trên Trang Facebook -->
                 <div class="fb-features-grid">
                     <div class="fb-feature-card fb-card-blue">
                         <div class="fbc-icon">📺</div>
-                        <h5 class="fbc-title">Livestream Giải Đề HSK</h5>
+                        <h5 class="fbc-title">Phát Trực Tiếp Giải Đề HSK</h5>
                         <p class="fbc-desc">Cô Mỹ Đức livestream định kỳ hướng dẫn mẹo làm bài HSK 3 - 6, chỉnh phát âm và giải đáp thắc mắc ngữ pháp trực tiếp.</p>
-                        <a href="https://www.facebook.com/tiengtrungcomyduc/" target="_blank" rel="noopener" class="fbc-link">Xem bài giảng trên Fanpage &rarr;</a>
+                        <a href="https://www.facebook.com/tiengtrungcomyduc/" target="_blank" rel="noopener" class="fbc-link">Xem bài giảng trên Trang Facebook &rarr;</a>
                     </div>
                     <div class="fb-feature-card fb-card-red">
                         <div class="fbc-icon">📚</div>
                         <h5 class="fbc-title">Tài Liệu Hán Ngữ Miễn Phí</h5>
                         <p class="fbc-desc">Tải kho tài liệu độc quyền: 2.500 từ vựng HSK, sổ tay ngữ pháp, file nghe audio giọng chuẩn Bắc Kinh được cập nhật liên tục.</p>
-                        <a href="https://www.facebook.com/tiengtrungcomyduc/" target="_blank" rel="noopener" class="fbc-link">Tải tài liệu ngay &rarr;</a>
+                        <a href="https://www.facebook.com/tiengtrungcomyduc/" target="_blank" rel="noopener" class="fbc-link">Xem tài liệu học tập &rarr;</a>
                     </div>
                     <div class="fb-feature-card fb-card-gold">
                         <div class="fbc-icon">📅</div>
@@ -384,16 +416,16 @@ function myduc_render_about_page_enhancements() {
                     </div>
                     <div class="fb-feature-card fb-card-green">
                         <div class="fbc-icon">💼</div>
-                        <h5 class="fbc-title">Bản Tin Việc Làm FDI Huế</h5>
+                        <h5 class="fbc-title">Bản Tin Việc Làm Tại Doanh Nghiệp Nước Ngoài Ở Huế</h5>
                         <p class="fbc-desc">Kênh kết nối việc làm độc quyền từ các đối tác FDI tại Huế &amp; Miền Trung: Tuyển Biên phiên dịch, Kế toán, Trợ lý tiếng Trung lương cao.</p>
-                        <a href="https://www.facebook.com/tiengtrungcomyduc/" target="_blank" rel="noopener" class="fbc-link">Xem tuyển dụng mới &rarr;</a>
+                        <a href="https://www.facebook.com/tiengtrungcomyduc/" target="_blank" rel="noopener" class="fbc-link">Xem tin tuyển dụng mới &rarr;</a>
                     </div>
                 </div>
             </div>`;
             secFacebook.insertAdjacentHTML('beforeend', fbHtml);
         }
 
-        // 3. Chuyển hướng các liên kết ảnh trong Section 5 về Fanpage Facebook
+        // 3. Chuyển hướng các liên kết ảnh trong phần 5 về Trang Facebook
         var galleryLinks = document.querySelectorAll('.elementor-element-a61122d a');
         galleryLinks.forEach(function(link) {
             link.href = 'https://www.facebook.com/tiengtrungcomyduc/';
@@ -450,7 +482,6 @@ function myduc_redirect_course_category_archive_pages() {
         }
     }
 }
-
 // 15. TIÊU CHUẨN PM 10 NĂM: QUY CHUẨN PHỐI MÀU 60 - 30 - 10 & TRẢI NGHIỆM GẦN GŨI VỚI NGƯỜI VIỆT NAM
 add_action( 'wp_footer', 'myduc_vietnamese_ux_enhancements', 99 );
 function myduc_vietnamese_ux_enhancements() {
@@ -469,7 +500,7 @@ function myduc_vietnamese_ux_enhancements() {
             <span class="m-bar-icon">⚡</span>
             <span class="m-bar-label">Messenger</span>
         </a>
-        <a href="https://maps.google.com/?q=84+Nguy%E1%BB%85n+Tr%C3%A3i+Hu%E1%BA%BF" target="_blank" rel="noopener noreferrer" class="m-bar-item m-bar-map" title="Xem Địa Chỉ 2 Cơ Sở Huế">
+        <a href="<?php echo esc_url( home_url( '/lien-he/' ) ); ?>" class="m-bar-item m-bar-map" title="Xem địa chỉ hai cơ sở tại Huế">
             <span class="m-bar-icon">📍</span>
             <span class="m-bar-label">Cơ Sở Huế</span>
         </a>
@@ -478,17 +509,18 @@ function myduc_vietnamese_ux_enhancements() {
     <!-- 15.2. JAVASCRIPT VIỆT HÓA & NÂNG CẤP TƯƠNG TÁC THÂN THIỆN -->
     <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // 1. Tự động chuyển đổi các nút submit tiếng Anh còn sót sang tiếng Việt thân thiện
-        var mcSubmit = document.querySelector('.wdt-mailchimp-subscription-button-holder button span');
-        if (mcSubmit && mcSubmit.textContent.trim().toLowerCase() === 'submit') {
-            mcSubmit.textContent = 'Đăng Ký Nhận Tin';
-        }
-        var mcInput = document.querySelector('input[name="wdt_mc_emailid"]');
-        if (mcInput) {
-            mcInput.setAttribute('placeholder', 'Nhập email nhận cẩm nang HSK...');
-        }
+        var formatVndPrices = function() {
+            document.querySelectorAll('.wdt-pricing-table-pricing-sale-price').forEach(function(price) {
+                var value = price.textContent.trim();
+                if (/^\d+$/.test(value)) {
+                    price.textContent = new Intl.NumberFormat('vi-VN').format(Number(value));
+                }
+            });
+        };
+        formatVndPrices();
+        new MutationObserver(formatVndPrices).observe(document.body, { childList: true, subtree: true });
 
-        // 2. Chèn Dải 4 Cam Kết Vàng của Cô Mỹ Đức vào Trang Chủ
+        // Hiển thị thông tin chương trình, không đưa ra cam kết chưa được xác nhận.
         var homeIntroSec = document.querySelector('.elementor-element-c064eda');
         if (homeIntroSec && !document.getElementById('myducTrustRibbon')) {
             var trustHtml = `
@@ -497,29 +529,29 @@ function myduc_vietnamese_ux_enhancements() {
                     <div class="trust-item">
                         <div class="trust-icon">📜</div>
                         <div class="trust-content">
-                            <h5>Cam Kết Đầu Ra HSK</h5>
-                            <p>Đậu HSK điểm cao hoặc học lại hoàn toàn miễn phí 100%</p>
+                            <h5>Luyện thi HSK/HSKK</h5>
+                            <p>Ôn tập theo cấp độ và mục tiêu của học viên.</p>
                         </div>
                     </div>
                     <div class="trust-item">
                         <div class="trust-icon">👩‍🏫</div>
                         <div class="trust-content">
-                            <h5>Cô Mỹ Đức &amp; Thạc Sĩ</h5>
-                            <p>Giảng viên ĐH Sư Phạm Hoa Trung trực tiếp giảng dạy</p>
+                            <h5>Thông tin giáo viên</h5>
+                            <p>Hồ sơ đội ngũ sẽ được cập nhật sau khi Trung tâm xác nhận.</p>
                         </div>
                     </div>
                     <div class="trust-item">
                         <div class="trust-icon">👥</div>
                         <div class="trust-content">
-                            <h5>Sĩ Số Vàng 8 - 12 Bạn</h5>
-                            <p>Kèm sát từng học viên, rèn khẩu ngữ phản xạ thực chiến</p>
+                            <h5>Tư vấn lộ trình học</h5>
+                            <p>Trao đổi theo trình độ, nhu cầu và lịch học hiện hành.</p>
                         </div>
                     </div>
                     <div class="trust-item">
                         <div class="trust-icon">🎓</div>
                         <div class="trust-content">
-                            <h5>Săn Học Bổng 0 Đồng</h5>
-                            <p>Tư vấn apply học bổng CIS, CSC, Du học Đài Loan uy tín</p>
+                            <h5>Tư vấn du học</h5>
+                            <p>Liên hệ Trung tâm để hỏi chương trình và thông tin hiện có.</p>
                         </div>
                     </div>
                 </div>
@@ -531,7 +563,4 @@ function myduc_vietnamese_ux_enhancements() {
     <?php
 }
 
-
-
-
-
+// Add staff profiles and activity photos after the center supplies verified materials.

@@ -35,8 +35,9 @@
 ### Module Triển Khai & Vận Hành
 * [x] **Mục 5**: Chức năng chat & mạng xã hội đa kênh góc màn hình: **Hotline, Zalo, Messenger, Facebook Fanpage, Tiktok, Youtube, Email**.
 * [x] **Mục 5**: Tích hợp Google Maps theo từng chi nhánh:
-  * *Cơ sở 1*: Số 10 Ngõ 2 Kiệt 92 Đặng Huy Trứ, TP. Huế
-  * *Cơ sở 2*: Số 84 Nguyễn Trãi, TP. Huế
+  * *Cơ sở 1*: 10/2/92 Đặng Huy Trứ, phường Thuận Hoá, Thành phố Huế
+  * *Cơ sở 2*: 84 Nguyễn Trãi, phường Phú Xuân, Thành phố Huế
+  * *Hotline / Zalo*: **0399.535.981** (Đồng bộ duy nhất toàn hệ thống)
 * [x] **Mục 6**: Chức năng chia sẻ link website, bài viết lên Facebook, Zalo và nút Sao chép Link tự động chèn ở chân trang.
 * [x] **Mục 7**: Nội dung Content đã được Việt hóa 100% chuẩn nhận diện thương hiệu Tiếng Trung Mỹ Đức.
 * [x] **Mục 8**: Cài đặt **Rank Math SEO**, cấu hình Title, Description, Schema EducationalOrganization và 2 chi nhánh LocalBusiness.
@@ -55,9 +56,12 @@
 5. Đặt **Ảnh đại diện bài viết (Featured Image)** ở cột bên phải.
 6. Nhấn nút **Đăng (Publish)**. Hệ thống sẽ tự động thêm bộ nút chia sẻ Facebook & Zalo ở cuối bài viết.
 
-### 3.2 Cách Xem Danh Sách Học Viên Đăng Ký Tư Vấn
-* Khi học viên điền Form ở trang [Liên hệ](http://localhost:8080/lien-he/) hoặc các nút CTA trên trang chủ, thông báo sẽ gửi trực tiếp về email: `tiengtrungcomyduc@gmail.com`.
-* Đồng thời, trong trang Admin, vào mục **Form liên hệ (Contact Form 7)** để xem hoặc chỉnh sửa các trường thông tin muốn thu thập.
+### 3.2 Form Đăng Ký Tư Vấn và Email Nhận Thông Tin
+* Form Contact Form 7 (ID `22542`) hiển thị trên trang chủ và trang [Liên hệ](http://localhost:8080/lien-he/). Thông tin được cấu hình gửi đến `tiengtrungcomyduc@gmail.com`.
+* Các trường họ tên, số điện thoại, email, chương trình học và cơ sở/nguyện vọng đã được nối với nội dung email. Contact Form 7 không lưu danh sách đăng ký trong trang quản trị nếu chưa cài thêm công cụ lưu dữ liệu.
+* Đã chuẩn bị luồng gửi qua Gmail SMTP nhưng môi trường hiện chưa có tài khoản gửi/App Password. Sao chép `.env.example` thành `.env`, nhập Gmail tại `MYDUC_SMTP_USERNAME` và Google App Password tại `MYDUC_SMTP_APP_PASSWORD`, sau đó chạy lại container WordPress. Tài khoản cần bật xác minh 2 bước và được phép tạo App Password; không dùng mật khẩu Gmail thông thường.
+* Tệp `.env` đã được loại khỏi Git; không đưa App Password vào mã nguồn, cơ sở dữ liệu hoặc nội dung chat. Chưa thể xác nhận email gửi thành công cho đến khi điền cấu hình SMTP thật và thử với sự đồng ý của Trung tâm.
+* Trong trang Admin, vào mục **Contact (Liên hệ) → Contact Forms** để chỉnh sửa cấu hình form; mục này không phải danh sách học viên đã gửi đăng ký.
 
 ### 3.3 Hướng Dẫn Chỉnh Sửa Giao Diện & Nội Dung Trực Quan (Elementor)
 
